@@ -1,0 +1,177 @@
+/* Style pour la barre de navigation */
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: #131C27;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  /*position : fixed ;
+  box-sizing: border-box;*/
+ 
+}
+  
+/*box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);*/
+  
+  
+
+
+  .logo{
+
+    flex: 1;
+    max-width: 160px;
+    height: auto;
+    margin-left: 5px;
+
+  }
+  
+
+
+  .navbar .links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 5px;
+    
+
+  }
+  .links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left :20px;
+    margin-top: 7px;
+    
+    transition: color 0.3s ease-in-out;
+  }
+
+  .link a{
+    /* margin-top: 5px ;*/
+    margin-left: 2.5vw;
+    margin-right: 2.5vw; 
+  }
+
+  .link{
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  
+  .links a:hover {
+    color: #C98264 ;
+    background-color: #161F2B;
+  }
+  
+  .navbar .btn {
+    background-color: #131C27;
+    color: #C98264;
+    border:2px solid #C98264;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 20px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    
+  }
+  
+  .navbar .btn:hover {
+    background-color: #C98264;
+    color: #131C27;
+  }
+
+  .navbar-toggle {
+    display: none;
+   }
+  
+  /* Responsive design */
+  @media (max-width: 800px) {
+
+    .navbar .links {
+      display: none;
+   }
+  
+   .navbar-toggle {
+      display: block;
+      background-color: #131C27;
+      color: #FFF;
+   }
+  
+   .links-res {
+
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      margin-left: 50vw;
+      margin-right: 0;
+      margin-top: 0;
+      background-color: #1d2836;
+
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+   }
+  
+   .links-res a {
+      display: block;
+      text-align: left;
+      color: #FFF;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+      margin-top: 2vw;
+      margin-bottom: 4vw;
+      padding: 1vw;
+      /*margin-left: 16vw;
+      margin-right: 14vw;*/
+      margin-top: 5vw;
+   }
+
+   .links-res a:hover {
+    color: #C98264 ;
+    background-color: #161F2B;
+  }
+
+
+   .links-res .btn {
+    background-color: #131C27;
+    color: #C98264;
+    border:2px solid #C98264;
+    padding: 1vw 0.3vw;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 16px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 10vw;
+    margin-bottom: 5vw;
+    
+  }
+
+  .links-res .btn:hover {
+    background-color: #C98264;
+    color: #131C27;
+  }
+
+
+
+
+
+
+   
+    }
+
+
+
+ 
+ 
