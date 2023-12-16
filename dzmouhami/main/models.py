@@ -15,7 +15,7 @@ class avocat(AbstractUser):
     adresse = models.CharField(max_length=256, blank=True)
     tarif=models.FloatField()
     evaluation=models.IntegerField(default=0)
-    photo=models.ImageField(upload_to='utilisateurs/', default='utilisateur.jpg')
+    photo=models.CharField(max_length=256,default='utilisateur.jpg',blank=True,null=True)
    
     
     USERNAME_FIELD = "email"

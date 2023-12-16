@@ -10,7 +10,7 @@ from .models import avocat
 class avocatSerializer(serializers.ModelSerializer):
     class Meta:
         model = avocat
-        fields =('id','username','nom','email','telephone','prenom','evaluation','tarif','adresse','specialite')
+        fields =('id','username','nom','email','telephone',"photo",'prenom','evaluation','tarif','adresse','specialite')
 
 
 
@@ -24,7 +24,7 @@ class SignUpSerializer(serializers.ModelSerializer):
     specialite = serializers.CharField(max_length=45)
     telephone = serializers.CharField(max_length=12)
     adresse = serializers.CharField(max_length=256)
-    photo=serializers.ImageField(default='utilisateur.jpg')
+    photo=serializers.CharField(max_length=256)
    
     class Meta:
 
@@ -64,6 +64,7 @@ class SignUpSerializer(serializers.ModelSerializer):
             prenom=validated_data["prenom"],
             telephone=validated_data["telephone"],
             adresse=validated_data["adresse"],
+            photo=validated_data["photo"],
            
            
         )
