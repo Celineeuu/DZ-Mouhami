@@ -1,0 +1,139 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #161F2B;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hero-text {
+    flex: 1;
+    animation: fadeInLeft 1s;
+
+    margin-top: 40px ;
+    margin-left: 50px;
+  }
+
+  .hero-text p{
+
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.1vw;
+
+  }
+
+  .hero-text .hero-orange{
+
+    font-size: 3.7vw;
+    color: #C98264;
+    margin-top: 1px;
+  }
+
+  .hero-text .hero-blanc{
+
+    font-size: 3.7vw;
+    color:#fff;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+  }
+
+
+  
+  
+  .hero-image {
+    flex: 1;
+    width: 50vw;
+    margin-top: 2px;
+    height: auto;
+    animation: fadeInRight 1s;
+  }
+
+  .hero-text .btn {
+    background-color: #131C27;
+    color: #C98264;
+    border:2px solid #C98264;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 10vw;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .hero-text .btn:hover {
+    background-color: #C98264;
+    color: #131C27;
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+
+
+
+  @media (max-width: 800px) {
+    .hero {
+    
+      flex-direction: row;
+    }
+  
+    /*.hero-text, .hero-image {
+      flex: none;
+    }*/
+
+    .hero-text .btn {
+      padding: 8px 20px;
+      margin-left: 10px;
+      font-size: 10px;
+      margin-top: 10vw;
+      margin-left: 50px;
+      border-radius: 20px;
+
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      margin: 5vw 2vw;
+    
+
+    }
+
+   .hero-text{
+    flex: 1;
+    animation: fadeInLeft 1s;
+    margin-top: 4.5vw;
+    margin-left: 2px;
+    margin-right: 0px;
+    
+   }
+
+
+    .hero-text p{
+      font-size: 2vw;
+      margin-top: 20px;
+      
+    }
+  
+    .hero-text .hero-orange{
+
+      margin-top: 1px;
+    }
+  
+    .hero-text .hero-blanc{
+      padding-bottom: 1px;
+      margin-bottom: 1px;
+    }
+  
+  }
