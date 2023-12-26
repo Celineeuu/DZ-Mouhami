@@ -1,0 +1,29 @@
+
+.data-id,
+.data-nom,
+.data-prenom {
+ color: white;
+ display: inline-block;
+ width: 20%; /* Ajustez cette valeur en fonction de la taille souhaitée */
+ text-align: left;
+}
+
+
+.row { 
+    display: flex;    
+    flex-direction: row;
+    justify-content: space-between;
+}
+.profil-url{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .data-id,
+    .data-nom,
+    .data-prenom {
+       width: 5%; 
+       font-size: 2vw;
+    }
+   }
