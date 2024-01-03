@@ -10,7 +10,7 @@ from .models import avocat
 class avocatSerializer(serializers.ModelSerializer):
     class Meta:
         model = avocat
-        fields =('id','nom','email','telephone',"photo",'prenom','evaluation','tarif','adresse','specialite','bio')
+        fields =('id','nom','email','telephone',"photo",'prenom','evaluation','adresse','specialite','bio')
 
 
 
@@ -20,7 +20,6 @@ class SignUpSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255)
     nom = serializers.CharField(max_length=255)
     prenom = serializers.CharField(max_length=255)
-    tarif=serializers.FloatField()
     specialite = serializers.CharField(max_length=45)
     telephone = serializers.CharField(max_length=12)
     adresse = serializers.CharField(max_length=256)
@@ -33,11 +32,9 @@ class SignUpSerializer(serializers.ModelSerializer):
             "nom",
             "prenom",
             "telephone",
-            
             "email",
             "password",
            "photo",
-            "tarif",
             "specialite",
             "adresse",
             "bio",
@@ -58,7 +55,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         avocaat = avocat.objects.create(
             email=validated_data["email"],
             password=validated_data["password"],
-            tarif=validated_data["tarif"],
+           
             specialite=validated_data["specialite"],
             nom=validated_data["nom"],
             prenom=validated_data["prenom"],

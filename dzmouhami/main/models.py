@@ -12,13 +12,13 @@ class avocat(models.Model):
     specialite = models.CharField(max_length=45, null=True)
     telephone = models.CharField(max_length=12, blank=True)
     adresse = models.CharField(max_length=256, blank=True)
-    tarif=models.FloatField()
+   
     evaluation=models.IntegerField(default=0)
     photo=models.ImageField(max_length=256,default='utilisateur.jpg',upload_to='utilisateurs/',blank=True,null=True)
     bio=models.CharField(max_length=255,default="",blank=True)
     
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["telephone","specialite","tarif",
+    REQUIRED_FIELDS = ["telephone","specialite",
     ]
 
     def __str__(self):
