@@ -1,0 +1,9 @@
+Pour le link:
+ #inscription
+   auth/signup/
+#lister les avocats pour la page admin et pour la page recherche
+   auth/liste_avocats/
+#Supprimer l'avocat a partir de son id
+   supprimer_avocat/<int:id>/
+    
+   
