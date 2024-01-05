@@ -1,0 +1,79 @@
+.rendezVousAvocat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8vw;   
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.demandes-container {
+    overflow-x: auto;
+    white-space: nowrap; 
+}
+
+.demandes-container::-webkit-scrollbar {
+    display: none;
+}
+
+.demandes {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 3vw;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 50vw;
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1vw;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.agenda {
+    
+    display: flex;
+    flex-direction: row;
+    gap: 5vw
+}
