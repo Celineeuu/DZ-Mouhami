@@ -27,7 +27,7 @@ const Connexion = () => {
         e.preventDefault();
         try {
            console.log(formData)
-           const response = await fetch("http://127.0.0.1:8000/auth/signup/", { //ici on doit mettre l'url du back
+           const response = await fetch("", { //ici on doit mettre l'url du back
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
