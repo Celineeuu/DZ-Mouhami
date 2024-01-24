@@ -23,8 +23,9 @@
 
 .title {
   color: #C98264; 
-  font-family: Helvetica Neue LT Std;
+  font-family:helvetica neue lt pro;
   font-size: 35px;
+  font-weight: 800;
 }
 
 .form {
@@ -39,8 +40,7 @@
 .formRow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 12vw; 
+  justify-content: space-between
 }
 
 .item {

@@ -1,0 +1,76 @@
+.calendar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4%;
+    height: 65vh;
+}
+
+/* style pour l'entete */
+.fc-header-toolbar {
+    background-color: transparent;
+    color: white;
+    font-size: 10px;
+    font-family: Hedvig Letters Sans;
+    width: 29vw;
+  }
+  
+  /* style pour le calendrier */
+  .fc-day {
+    flex: 1;
+    border: 1px solid #131C27;
+    background-color: white;
+    color: #131C27;
+    width: 4vw;
+    font-family: Hedvig Letters Sans;
+  }
+  
+  /* style pour les evenements en bleu */
+  .fc-event {
+    background-color: #C98264;
+    border: 1px solid #C98264;
+    font-family: Hedvig Letters Sans;
+  }
+
+  /* style pour le boutton aujourd'hui*/
+.fc .fc-toolbar-chunk .fc-button-primary {
+    background-color: #C98264;
+    color: #fff;
+    border: 1px solid #C98264;
+    font-family: Hedvig Letters Sans;
+    
+  }
+  
+  /* style pour les bouttons left and right */
+  .fc .fc-toolbar-chunk .fc-prev-button, .fc .fc-toolbar-chunk .fc-next-button {
+    background-color: transparent;
+    color: #C98264;
+    border: 1px solid #C98264;
+  }
+  /* styles pour les bouttons on hover */
+  .fc .fc-toolbar-chunk .fc-prev-button:hover, .fc .fc-toolbar-chunk .fc-next-button:hover {
+    background-color: #C98264;
+    color: white;
+    border: 1px solid #C98264;
+  }
+
+.infos {
+    flex: 0 0 30vw;
+    overflow-y: auto;
+    border-right: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-family: Hedvig Letters Sans;
+}
+
+.tache {
+    padding: 1%;
+    border-radius: 5px;
+    &:hover{
+        background-color: #EEE5E1;
+      }
+}

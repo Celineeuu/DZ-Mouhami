@@ -3,6 +3,14 @@ body{
     background-size: cover;
 }
 
+.inscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8vw;
+}
+
 .boxDiv {
     display: flex;
     flex-direction: column;
@@ -16,11 +24,13 @@ body{
     padding-top: 3%;
     padding-bottom: 7%;
     margin-bottom: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .title {
   color: #C98264; 
-  font-family: Helvetica Neue LT Std;
+  font-family:helvetica neue lt pro;
   font-size: 35px;
 }
 

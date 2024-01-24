@@ -6,15 +6,19 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from "moment";
 import "./prendreRendezVous.css"
+import { useParams } from 'react-router-dom';
 
 const PrendreRendezVous = () => {
     const [date, setDate] = useState(null)
     const [time, setTime] = useState(null)
+    const { connected_id, avocat_id } = useParams();
     const [formData, setFormData] = useState({
         nom: "",
         prenom: "",
-        email: "",
+        numtel: "",
         sujet: "",
+        idUser: connected_id,
+        idAvocat: avocat_id
     })
     const [busyTimes, setBusyTimes] = useState(["12:30", "11:30"])
 
@@ -67,6 +71,8 @@ const PrendreRendezVous = () => {
             console.log(formDataToSend.get("prenom"))
             console.log(formDataToSend.get("email"))
             console.log(formDataToSend.get("sujet"))
+            console.log(formDataToSend.get("idUser"))
+            console.log(formDataToSend.get("idAvocat"))
             const response = await fetch("", { // ajouter l'url du back
                 method: 'POST',
                 body: formData,
@@ -96,8 +102,8 @@ const PrendreRendezVous = () => {
                     </div>
                     <div className="formRow">
                         <div className="item">
-                            <label className="labels" for = "username">Email *</label>
-                            <input className="input" onChange={handleInputChange} id="email" name="email" placeholder="Email" type="email" required></input>
+                            <label className="labels" for = "telephone">Numéro de telephone *</label>
+                            <input onChange={handleInputChange} pattern="\d{10}" className="input" id="telephone" name="telephone" placeholder="Numéro de telephone" required></input>
                         </div>
                         <div className="item">
                             <label className="labels" for = "adresse">Sujet *</label>
@@ -124,7 +130,7 @@ const PrendreRendezVous = () => {
                                 onChange={(time) => setTime(time)}
                                 showTimeSelect
                                 showTimeSelectOnly
-                                timeIntervals={30}
+                                timeIntervals={60}
                                 timeFormat="HH:mm"
                                 dateFormat="HH: mm"
                                 minTime={moment().hours(8).minutes(0).toDate()}
