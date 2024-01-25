@@ -1,0 +1,106 @@
+.rendezVous {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    padding-bottom: 7%;
+    margin-bottom: 7%;
+}
+
+.title {
+  color: #C98264; 
+  font-family: Helvetica Neue LT Std;
+  font-size: 35px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+.labels {
+    color: #C98264; 
+    font-family: Hedvig Letters Sans;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.react-datepicker-wrapper {
+    width: 19vw; 
+}
+.react-datepicker__input-container input {
+    outline-color: #C98264;
+    border: 1px solid #161F2B;
+    padding: 1em;
+    border-radius: 7px;
+    width: 100%;
+    height: 4vh;
+    font-size: 16px;
+    font-family: 'Hedvig Letters Sans', sans-serif;
+    color: #161F2B;
+}
+
+/* Style the calendar header */
+.div.react-datepicker__header {
+    background-color: #3498db;
+    color: #fff;
+    border-bottom: none;
+  }
+  
+  /* Style the day names in the calendar header */
+  .react-datepicker__day-name {
+    color: #3498db;
+  }
+  
+  /* Style the individual day cells in the calendar */
+  .react-datepicker__day {
+    color: #333;
+    &:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+  }
+  
+  /* Style the selected day in the calendar */
+  .react-datepicker__day--selected {
+    background-color: #3498db;
+    color: #fff;
+  }
+
+
+
+.bouton {
+    margin-top: 15%;
+    color: #C98264;
+    background-color: white;
+    font-family: Hedvig Letters Sans;
+    font-size: 20px;
+    border: 1px solid #C98264;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 13vw;
+    height: 4vw;
+    border-radius: 8px;
+    &:hover{
+      background-color: #C98264;
+        border: #C98264;
+        color: white;
+    }
+}
