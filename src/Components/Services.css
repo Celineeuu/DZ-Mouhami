@@ -1,0 +1,149 @@
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #161F2B ;
+    margin-bottom: 150px;
+    
+    
+}
+
+
+.s-titre{
+    display: flex;
+    flex-direction: row;
+    font-size: 2.3vw;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-left: 15px;
+   
+}
+
+.s-blanc {
+   margin-left: 460px;
+    color: white;
+}
+
+.s-orange {
+    color: #C98264;
+    margin-left: 20px;
+}
+
+.text{
+
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
+    margin-right: 8vw;
+    
+}
+
+.titre{
+    display: flex;
+    flex-direction: row;
+   
+}
+  
+.num{
+    
+    font-size: 7vw;
+    color:  #131C27 ;
+    -webkit-text-stroke: 1px #C98264;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0vw;
+
+}
+
+.num-text{
+ color: white;
+ font-size: 2vw;
+ font-weight: bold;
+ margin-top:3vw ;
+ margin-left: 2vw;
+ margin-bottom: 0vw;
+ 
+
+}
+
+
+
+
+.des{
+    color: white;
+    margin-right: 150px;
+    margin-bottom: 60px;
+    font-size: 1.5vw;
+    margin-top: 0vw;
+    font-weight: lighter;
+}
+
+.element{
+    margin-bottom: 5vw;
+    margin-right: 2w;
+    
+}
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+
+
+
+  @media (max-width: 800px) {
+
+    .s-titre{
+        display: flex;
+        flex-direction: row;
+        font-size: 2.3vw;
+        text-align: center;
+        margin-bottom: 60px;
+        margin-top: 15vw;
+        margin-left: 26vw;
+    }
+
+    .num-text{
+      font-size: 3vw;
+      margin-top:3vw;
+      padding-bottom: 0vw;
+      margin-bottom: 0px;
+    }
+
+
+    .s-blanc {
+        margin-left: 5vw;
+         color: white;
+     }
+     
+     .s-orange {
+         color: #C98264;
+         margin-left: 2vw;
+     }
+
+     .balance{
+
+        width: 100%;
+        height: auto;
+        margin: 5vw 2vw;
+        
+
+
+     }
+
+     .des{
+        font-size: 2vw;
+        margin-right: 10vw;
+        margin-bottom: 6vw;
+     }
+
+    
+  }
+  

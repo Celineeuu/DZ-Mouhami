@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "../Components/NavBar"
-import Footer from "../Components/Footer"
 import { useState } from "react"
 import "./inscription.css"
+import { useNavigate } from 'react-router-dom';
+
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +18,16 @@ const Inscription = () => {
     tarif: null,
     bio: ""
   });
+  const navigate = useNavigate();
+
 
   const [image, setImage] = useState(null);
+  const [speciality, setSpeciality] = useState('');
+
+  const handleOptionChange = (e) => {
+    console.log(e.target.value)
+    setSpeciality(e.target.value);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -42,22 +50,23 @@ const Inscription = () => {
         formDataToSend.append(key, formData[key]);
       }
       formDataToSend.append('photo', image);
-      console.log(formDataToSend)
-      const response = await fetch("http://127.0.0.1:8000/auth/signup/", {
+      formDataToSend.append('specialite', speciality);
+      console.log(formDataToSend.get("specialite"))
+      const response = await fetch("http://127.0.0.1:8000/api/signup/", {
         method: 'POST',
         body: formDataToSend,
       });
 
       const data = await response.json();
       console.log("Réponse du back: ", data);
+      navigate("/Connexion");
     } catch (error) {
       console.error("Erreur lors du fetch du form Inscription: ", error);
     }
   };
 
     return(
-      <div className="inscription">
-          <NavBar />  
+      <div className="inscription"> 
           <div className="boxDiv">
           <h1 className="title">Inscription</h1>
           <form className="form" type= 'POST' encType="multipart/form-data" onSubmit={handleFormSubmit}>
@@ -84,35 +93,24 @@ const Inscription = () => {
             <div className="formRow">
               <div className="item">
                 <label className="labels" for = "specialite">Specialitée *</label>
-                <select onChange={handleInputChange} className="input" id="specialite" name="specialite" placeholder="Specialitée" required>
-                  <option value="option1">Droit de l’arbitrage</option>
-                  <option value="option1">Droit des associations et des fondations</option>
-                  <option value="option1">Droit des assurances</option>
-                  <option value="option1">Droit bancaire et boursier</option>
-                  <option value="option1">Droit commercial, des affaires et de la concurrence</option>
-                  <option value="option1">Droit du crédit et de la consommation</option>
-                  <option value="option1">Droit du dommage corporel</option>
-                  <option value="option1">Droit des enfants</option>
-                  <option value="option1">Droit de l’environnement</option>
-                  <option value="option1">Droit des étrangers et de la nationalité</option>
-                  <option value="option1">Droit de la famille, des personnes et de leur patrimoine</option>
-                  <option value="option1">Droit de la fiducie</option>
-                  <option value="option1">Droit fiscal et droit douanier</option>
-                  <option value="option1">Droit des garanties, des sûretés et des mesures d’exécution</option>
-                  <option value="option1">Droit immobilier</option>
-                  <option value="option1">Droit international et de l’Union européenne</option>
-                  <option value="option1">Droit du numérique et des communications</option>
-                  <option value="option1">Droit pénal</option>
-                  <option value="option1">Droit de la propriété intellectuelle</option>
-                  <option value="option1">Droit de la protection des données personnelles</option>
-                  <option value="option1">Droit public</option>
-                  <option value="option1">Droit rural</option>
-                  <option value="option1">Droit de la santé</option>
-                  <option value="option1">Droit de la sécurité sociale et de la protection sociale</option>
-                  <option value="option1">Droit des sociétés</option>
-                  <option value="option1">Droit du sport</option>
-                  <option value="option1">Droit des transports</option>
-                  <option value="option1">Droit du travail</option>
+                <select value={speciality} onChange={handleOptionChange} className="input" id="specialite" name="specialite" placeholder="Specialitée" required>
+                  <option selected value="default">Please Select</option>
+                  <option value="Droit de l’arbitrage">Droit de l’arbitrage</option>
+                  <option value="Droit des associations et des fondations">Droit des associations et des fondations</option>
+                  <option value="Droit des assurances">Droit des assurances</option>
+                  <option value="Droit bancaire et boursier">Droit bancaire et boursier</option>
+                  <option value="Droit commercial, des affaires et de la concurrence">Droit commercial, des affaires et de la concurrence</option>
+                  <option value="Droit du crédit et de la consommation">Droit du crédit et de la consommation</option>
+                  <option value="Droit du dommage corporel">Droit du dommage corporel</option>
+                  <option value="Droit des enfants">Droit des enfants</option>
+                  <option value="Droit de l’environnement">Droit de l’environnement</option>
+                  <option value="Droit des étrangers et de la nationalité">Droit des étrangers et de la nationalité</option>
+                  <option value="Droit de la famille, des personnes et de leur patrimoine">Droit de la famille, des personnes et de leur patrimoine</option>
+                  <option value="Droit de la fiducie">Droit de la fiducie</option>
+                  <option value="Droit fiscal et droit douanier">Droit fiscal et droit douanier</option>
+                  <option value="Droit des garanties, des sûretés et des mesures d’exécution">Droit des garanties, des sûretés et des mesures d’exécution</option>
+                  <option value="Droit immobilier">Droit immobilier</option>
+                  <option value="Droit international et de l’Union européenne">Droit international et de l’Union européenne</option>
                 </select>
               </div>
               <div className="item">
@@ -153,7 +151,6 @@ const Inscription = () => {
             </button>
           </form>
         </div>
-        <Footer />
       </div>
       
 

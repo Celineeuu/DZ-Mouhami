@@ -24,7 +24,7 @@ const Calendar = () => {
     useEffect(() => {
         const fetchTaches = async () => {
             try {
-                const response = await fetch(`/url/${connected_id}`); // ajouter l'url du back
+                const response = await fetch(`/link/${connected_id}`); // ajouter l'url du back
                 const data = await response.json();
                 setTaches(data.taches); // je dois demander à lilia de nomer la liste des taches taches 
             } catch (error) {

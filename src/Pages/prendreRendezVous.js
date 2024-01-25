@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../Components/NavBar"
-import Footer from "../Components/Footer"
 import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
@@ -86,7 +84,6 @@ const PrendreRendezVous = () => {
 
     return(
         <div className="rendezVous">
-            <NavBar />
             <div className="container">
                 <h1 className="title">Prendre un rendez vous</h1>
                 <form className="form" type="POST" onSubmit={handleFormSubmit}>
@@ -142,7 +139,6 @@ const PrendreRendezVous = () => {
                     <button className="bouton" type="submit">Envoyer</button>
                 </form>
             </div>
-            <Footer />
         </div>
     )
 }
