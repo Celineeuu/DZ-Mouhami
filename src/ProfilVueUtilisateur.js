@@ -127,6 +127,7 @@ const handleRatingSubmit = () => {
     
 <div className="centeredDiv" style={{ display: "flex", flexDirection: "column" }}>
   <div className="titre0">Localisation</div>
+  <div>
   <MapContainer  center={[avocatInfo.latitude, avocatInfo.longitude]} zoom={10} style={{ height: "30px" }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -138,6 +139,7 @@ const handleRatingSubmit = () => {
         </Popup>
       </Marker>
     </MapContainer>
+    </div>
 
 </div>
 
