@@ -26,7 +26,7 @@ const SocialAuth = () => {
     return axios
       .get(`${REACT_APP_BACKEND_API_URL}/api/auth/google/${code}`)
       .then((res) => {
-        localStorage.setItem("goggleFirstName", res.data.user.first_name);
+        localStorage.setItem("googleFirstName", res.data.user.first_name);
         return res.data;
       })
       .catch((err) => {
@@ -34,6 +34,7 @@ const SocialAuth = () => {
         return err;
       });
   };
+  
 
   const onGogglelogin = async () => {
     try {
