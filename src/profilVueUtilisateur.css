@@ -272,3 +272,24 @@ line-height: normal;
   .footer{
     margin-top: 150px;
   }
+  .buton {
+    color: white;
+    background-color: #C98256;
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    border: 1px solid #C98264;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 15vw;
+    height: 4vw;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  margin-left: 300px;
+  margin-top: 100px;
+    &:hover{
+      background-color: #C98264;
+        border: #C98264;
+        color: white;
+        transform: scale(1.1); 
+    }
+  }

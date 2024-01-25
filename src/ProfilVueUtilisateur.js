@@ -15,6 +15,10 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 const ProfilVueUtilisateur= () => {
    
   const [comment, setComment] = useState("");
+  
+  const handleClickPremier = () => {
+    console.log("Cliqué sur le premier bouton !");
+  };
 
   const handleCommentSubmit = () => {
     if (comment.trim() !== "") {
@@ -112,8 +116,11 @@ const handleRatingSubmit = () => {
           <br/>
           <div className="spec"><b>Specialite:</b></div>
           <span className="specialite">{specialiteAvocat}</span>
+          <button className="buton" onClick={handleClickPremier} >Prendre Rendez-vous</button>
          </div>
+        
       </div>
+    
     </div>
     
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
