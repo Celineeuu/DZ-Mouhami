@@ -56,8 +56,8 @@ const ProfilVueUtilisateur= () => {
       { contenu: "Contenu du deuxième commentaire", nomPersonne: "Nom de la personne 2" },
       { contenu: "Contenu du troisième commentaire", nomPersonne: "Nom de la personne 3" },
     ],
-    /*latitude: 48.8583701,
-    longitude: 2.2944813, */
+    latitude: 36.7558700,
+    longitude:5.0843300, 
   });
   const [commentaires, setCommentaires] = useState([
     { contenu: "Contenu du premier commentaire", nomPersonne: "Nom de la personne 1" },
@@ -97,8 +97,8 @@ const ProfilVueUtilisateur= () => {
       console.error("Erreur lors du fetch des avocats: ", error);
     }
   };
-  /*avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/
+  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
+avocatInfo.longitude = 2.2944813; // Replace with actual longitude
   // Accéder aux propriétés de l'objet avocatInfo pour obtenir les informations individuelles
   const ratingAvocat = avocatInfo.rating;
   const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
