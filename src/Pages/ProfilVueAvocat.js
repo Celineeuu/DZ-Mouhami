@@ -35,8 +35,8 @@ const ProfilVueAvocat = () => {
       { contenu: "Contenu du deuxième commentaire", nomPersonne: "Nom de la personne 2" },
       { contenu: "Contenu du troisième commentaire", nomPersonne: "Nom de la personne 3" },
     ],
-    latitude: 48.8583701,
-    longitude: 2.2944813, 
+    latitude: 36.7558700,
+    longitude:5.0843300,
   });
   const [commentaires, setCommentaires] = useState([
     { contenu: "Contenu du premier commentaire", nomPersonne: "Nom de la personne 1" },
@@ -82,8 +82,8 @@ const ProfilVueAvocat = () => {
   const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
   const specialiteAvocat = avocatInfo.specialite;
   const bioAvocat = avocatInfo.bio;
-  {/*avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
+  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
+avocatInfo.longitude = 2.2944813; // Replace with actual longitude
 
 
   const generateStars = () => {
