@@ -14,6 +14,10 @@ const ProfilVueUtilisateur= () => {
    
   const [comment, setComment] = useState("");
 
+  const handleClickPremier = () => {
+    console.log("Cliqué sur le premier bouton !");
+  };
+
   const handleCommentSubmit = () => {
     if (comment.trim() !== "") {
       const newComment = {
@@ -97,7 +101,6 @@ const handleRatingSubmit = () => {
 
     return(
     <div className="profilVueAvocatDiv">
-  
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="avocatInfoDiv">
     <span className="photoAvocat"><img src={avocatInfo.photo} alt="avocat"/></span>
@@ -110,8 +113,11 @@ const handleRatingSubmit = () => {
           <br/>
           <div className="spec"><b>Specialite:</b></div>
           <span className="specialite">{specialiteAvocat}</span>
+          <button className="buton0" onClick={handleClickPremier} >Prendre Rendez-vous</button>
          </div>
+        
       </div>
+    
     </div>
     
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
@@ -186,6 +192,7 @@ const handleRatingSubmit = () => {
 </div>
     </div>
 <div className="footer">
+  
 </div>
      
     </div>

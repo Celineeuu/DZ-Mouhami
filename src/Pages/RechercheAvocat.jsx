@@ -11,567 +11,70 @@ function RechercheAvocat() {
     {specialité : 'Droit de la famille'} ,
     {specialité : 'Droit civil'} ,
     {specialité : 'Constitution'} ,
+    {specialité : "Droit de l’arbitrage"},
+    {specialité : "Droit des associations et des fondations"},
+    {specialité : "Droit des assurances"},
+    {specialité : "Droit bancaire et boursier"},
+    {specialité : "Droit commercial, des affaires et de la concurrence"},
+    {specialité : "Droit du crédit et de la consommation"},
+    {specialité : "Droit du dommage corporel"},
+    {specialité : "Droit des enfants"},
+    {specialité : "Droit de l’environnement"},
+    {specialité : "Droit des étrangers et de la nationalité"},
+    {specialité : "Droit de la famille, des personnes et de leur patrimoine"},
+    {specialité : "Droit de la fiducie"},
+    {specialité : "Droit fiscal et droit douanier"},
+    {specialité : "Droit des garanties, des sûretés et des m}esures d’exécution"},
+    {specialité : "Droit immobilier"},
+    {specialité : "Droit international et de l’Union européenne"}
     
     
   ])
-
-  //useEffect()
 
 
   /*---je rècupère les options de l'adresse ---*/
   //on doit fetch
   const [optionAdresse, setOptionAdresse] = useState([
     {adresse: 'Alger'} ,
-    {adresse: 'Béjaia'} ,
+    {adresse: 'Bejaia'} ,
     {adresse: 'Skikda'} ,
-    {adresse: 'Tizi-Ouzou'} ,
+    {adresse: 'Tizi-Ouzou'},
+    {adresse: 'Jijel'},
+    {adresse: 'Skikda'},
+    {adresse: 'Setif'},
+    {adresse: 'Guelma'},
+    {adresse: 'Kalla'},
+    {adresse: 'Annaba'},
+    {adresse: 'Tipaza'},
+    {adresse: 'Oran'},
+    {adresse: 'Saida'},
     
   ])
 
-  //useEffect()
 
 
   /*----je dois récupérer les données des avocats ici (J'ai initialisé pour tester)----*/
   //on doit fetch
- const [avocatData, setAvocatData] = useState([
- // Les données ici...
-     {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note : 2 , 
-      sumnote:20} ,
+ const [avocatData, setAvocatData] = useState([]);
 
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
+ useEffect(() => {
+  const fetchAvocats = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/liste_avocats/");
+      const responseData = await response.json();
+      if (typeof responseData === 'object' && responseData !== null) {
+        setAvocatData(responseData);
+        console.log(avocatData)
+      } else {
+        console.error("La réponse du serveur ne contient pas les données attendues.");
+      }
+    } catch (error) {
+      console.error("Erreur lors du fetch des avocats: ", error);
+    }
+  };
 
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Béjaïa', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'celine', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,skikda', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Dihia', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Béjaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Lilya', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'19'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Amira',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-     
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Aida',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,skikda', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'20'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,skikda', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'20'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,skikda', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'20'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'20'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Sidi Ahmed , Bejaia', 
-      note :'0' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit civil , Droit des familles ', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'Tizi-Ouzou', 
-      note :'5' , 
-      sumnote:'20'},
-
-      {id:'1',
-      image :{image},
-      specialité :'Constitution', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'hvuhvuhhcufhv,alger', 
-      note :'5' , 
-      sumnote:'20'},
-      {id:'1',
-      image :{image},
-      specialité :'Droit de la famille', 
-      nom:'Ross', 
-      prenom: 'Mike',
-      adresse:'Sidi Yahia ,Alger', 
-      note :'2' , 
-      sumnote:'20'} ,
-
-      {id:'1',
-      image :{image},
-      specialité :'Droit pénal', 
-      nom:'Ross', 
-      prenom: 'Mike', 
-      adresse:'El Harrach ,Alger', 
-      note :'4' , 
-      sumnote:'20'} ,
-    
- ]);
-
- //useEffect()
+  fetchAvocats();
+}, [avocatData]);
  
 
 
@@ -596,7 +99,7 @@ function RechercheAvocat() {
     const filtrerAvocats = () => {
       
       const Filtres = avocatData.filter((avocat) =>
-        (specialité === '' || avocat.specialité.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(specialité.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) &&
+        (specialité === '' || avocat.specialite.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(specialité.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) &&
         (adresse === '' || avocat.adresse.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(adresse.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) 
        );
     
@@ -627,6 +130,7 @@ function RechercheAvocat() {
 
 const handleSearch = () => {
   const term = searchTerm.toLowerCase();
+  console.log("here ", avocatData)
   const Filtres = avocatData.filter((avocat) =>
     Object.values(avocat)
       .filter((value) => typeof value === 'string' && value !== null && value !== undefined) // Ajout de la vérification de null et undefined
@@ -768,12 +272,12 @@ function nextPageGroup() {
       <AvocatCard
         key={avocat.id}
         image={avocat.image}
-        specialité={avocat.specialité}
+        specialité={avocat.specialite}
         nom={avocat.nom}
         prenom={avocat.prenom}
         adresse={avocat.adresse}
-        note={avocat.note}
-        sumnote={avocat.sumnote}
+        note={avocat.evaluation}
+        sumnote={avocat.nbrvotes}
       />
     ))
   ) : (

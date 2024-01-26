@@ -1,149 +1,149 @@
 body{
-    background-image: url("../Assets/background.png");
-    background-size: cover;
+  background-image: url("../Assets/background.png");
+  background-size: cover;
 }
 .grandbouton{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Helvetica Neue LT Std";
-    margin: 50px;
-    font-size:30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Helvetica Neue LT Std";
+  margin: 50px;
+  font-size:30px;
 }
 
 .profilVueAvocatDiv{
-    gap: 8vw;
+  gap: 8vw;
 }
 
 .bouton1{
-    height:60px;
-        width: 50%;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-     color: white;
-     background-color: #C98264;
-     font-size: 25px;
+  height:60px;
+      width: 50%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+   color: white;
+   background-color: #C98264;
+   font-size: 25px;
 border: none;
 transition: transform 0.3s ease-in-out;
 font-family: "Helvetica Neue LT Std";
 &:hover{
-    color: #C98264;
-    background-color: white;
-    transform: scale(1.1); 
+  color: #C98264;
+  background-color: white;
+  transform: scale(1.1); 
 }
 &:active{
-    color: white;
-    background-color: #C98264;
+  color: white;
+  background-color: #C98264;
 }
 }
 .bouton3{
-    height: 60px;
-    width: 50%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    color:#C98264;
-    background-color:white;
-    font-size: 25px;
-    border: none;
-    transition: transform 0.3s ease-in-out;
-    font-family: "Helvetica Neue LT Std";
-    &:hover{
-        color: white;
-        background-color: #C98264;
-        transform: scale(1.1); 
-    }
+  height: 60px;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color:#C98264;
+  background-color:white;
+  font-size: 25px;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  font-family: "Helvetica Neue LT Std";
+  &:hover{
+      color: white;
+      background-color: #C98264;
+      transform: scale(1.1); 
+  }
 }
 
 .infosAvocat{
-    border-radius: 10px;
-    border: 4px solid #C98264;
-    background-color: white;
-    height: 500px;
-  width: 50%;
-  align-items: center;
+  border-radius: 10px;
+  border: 4px solid #C98264;
+  background-color: white;
+  height: 500px;
+width: 50%;
+align-items: center;
 }
 
 .centeredDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 100% de la hauteur de la vue (viewport height) */
-  }
-  
-  .avocatInfoDiv {
-    width: 75%;
-    padding: 20px;
-    /* Autres styles que vous souhaitez appliquer */
-    border-radius: 10px;
-    border: 4px solid #C98264;
-    background-color: white;
-    height: 500px;
-    margin-top: -00px;
-    margin-bottom: 200px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% de la hauteur de la vue (viewport height) */
+}
+
+.avocatInfoDiv {
+  width: 75%;
+  padding: 20px;
+  /* Autres styles que vous souhaitez appliquer */
+  border-radius: 10px;
+  border: 4px solid #C98264;
+  background-color: white;
+  height: 500px;
+  margin-top: -00px;
+  margin-bottom: 200px;
+}
+
 .bioAvocatDiv{
-        width: 75%;
-        padding: 20px;
-        /* Autres styles que vous souhaitez appliquer */
-        border-radius: 10px;
-        border: 4px solid #C98264;
-        background-color: white;
-        height: 400px;
-        margin-top: -00px;
-        margin-bottom: 500px;
+      width: 75%;
+      padding: 20px;
+      /* Autres styles que vous souhaitez appliquer */
+      border-radius: 10px;
+      border: 4px solid #C98264;
+      background-color: white;
+      height: 400px;
+      margin-top: -00px;
+      margin-bottom: 500px;
 }
 
 .biographie{
-  color: #000;
-  font-family: Helvetica Neue LT Std;
+color: #000;
+font-family: Helvetica Neue LT Std;
 font-size: 25px;
 font-style: normal;
 font-weight: 200;
 line-height: normal;
 }
 
-  .photoAvocat {
-    flex: 1; /* Le div de la photo prend 1/3 de la largeur disponible */
-   margin-left: 10px;
-  }
-  
-  .infoAvocat {
-    flex: 2; /* Les informations de l'avocat (nomComplet et texte) prennent 2/3 de la largeur disponible */
-    padding-left: 20px; /* Ajouter un peu d'espace entre la photo et les informations */
-  }
-  
-  .ratingAvocat{
-    margin-top: 20px; /* Ajouter un peu d'espace entre la photo et le rating */
-  margin-left: 50px;
+.photoAvocat {
+  flex: 1; /* Le div de la photo prend 1/3 de la largeur disponible */
+ margin-left: 10px;
+}
+
+.infoAvocat {
+  flex: 2; /* Les informations de l'avocat (nomComplet et texte) prennent 2/3 de la largeur disponible */
+  padding-left: 20px; /* Ajouter un peu d'espace entre la photo et les informations */
+}
+
+.ratingAvocat{
+  margin-top: 20px; /* Ajouter un peu d'espace entre la photo et le rating */
+margin-left: 50px;
 }
 
 .nomCompletAvocat{
-    font-family:  Helvetica Neue LT Std;
-    font-size: 50px;
-    font-weight: 900px;
-    color: black;
-}
-
-.spec{
   font-family:  Helvetica Neue LT Std;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 900px;
   color: black;
 }
 
+.spec{
+font-family:  Helvetica Neue LT Std;
+font-size: 30px;
+font-weight: 900px;
+color: black;
+}
+
 .topInfo{
-    margin-left: 320px;
-    margin-top: -320px;
+  margin-left: 320px;
+  margin-top: -320px;
 }
 
 .specialite{
-    color: #000;
-   font-family: Helvetica Neue LT Std;
+  color: #000;
+ font-family: Helvetica Neue LT Std;
 font-size: 25px;
 font-style: normal;
 font-weight: 200;
@@ -151,117 +151,117 @@ line-height: normal;
 }
 
 .titre1{
-    color: #C98264;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-   
-}
-
-
-.titre2{
-    color: #C98264;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-    margin-left: 430px;
-    margin-top: -30px;
-}
-
-.titre3{
-    color: white;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-   margin-left: 600px;
-   margin-top: -30px;
-}
-
-.titre6{
-    color: #C98264;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-    margin-top: -160px;
-    margin-bottom: 20px;
-   align-items:start;
-    margin-right: 560px;
-}
-
-
-.titre0{
   color: #C98264;
   font-family: Helvetica Neue LT Std;
   font-size: 96px;
   font-weight: 700px;
-  margin-top: -400px;
+ 
+}
+
+
+.titre2{
+  color: #C98264;
+  font-family: Helvetica Neue LT Std;
+  font-size: 96px;
+  font-weight: 700px;
+  margin-left: 430px;
+  margin-top: -30px;
+}
+
+.titre3{
+  color: white;
+  font-family: Helvetica Neue LT Std;
+  font-size: 96px;
+  font-weight: 700px;
+ margin-left: 600px;
+ margin-top: -30px;
+}
+
+.titre6{
+  color: #C98264;
+  font-family: Helvetica Neue LT Std;
+  font-size: 96px;
+  font-weight: 700px;
+  margin-top: -160px;
   margin-bottom: 20px;
  align-items:start;
-  margin-right: 520px;
+  margin-right: 560px;
+}
+
+
+.titre0{
+color: #C98264;
+font-family: Helvetica Neue LT Std;
+font-size: 96px;
+font-weight: 700px;
+margin-top: -400px;
+margin-bottom: 20px;
+align-items:start;
+margin-right: 520px;
 }
 
 .localisationAvocatDiv{
-  width: 75%;
-  padding: 20px;
-  /* Autres styles que vous souhaitez appliquer */
-  border-radius: 10px;
-  border: 4px solid #C98264;
-  background-color: white;
-  height: 400px;
-  margin-top: -00px;
-  margin-bottom: 500px;
+width: 75%;
+padding: 20px;
+/* Autres styles que vous souhaitez appliquer */
+border-radius: 10px;
+border: 4px solid #C98264;
+background-color: white;
+height: 400px;
+margin-top: -00px;
+margin-bottom: 500px;
 }
 
 .avisAvocatDiv{
-    background: #986E48;
-    width: 100%;
+  background: #986E48;
+  width: 100%;
 }
 
 .titre7{
-    color: #C98264;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-    margin-top: -160px;
-    margin-left: 310px;
+  color: #C98264;
+  font-family: Helvetica Neue LT Std;
+  font-size: 96px;
+  font-weight: 700px;
+  margin-top: -160px;
+  margin-left: 310px;
 }
 
 .cartesContainer {
-    display: flex;
-    justify-content: space-between; /* Espacement régulier entre les cartes */
-    align-items: stretch; /* Ajuste la hauteur des cartes en fonction du contenu */
-  }
-  
-  .carte {
-    width: calc(25% - 10px); /* Pour obtenir l'espacement régulier, ajustez la largeur en fonction du nombre de cartes et de l'espacement souhaité */
-    margin-right: 50px; /* Espacement entre les cartes */
-    margin-left: 50px;
-    background-color: #FFF;/* Autres styles pour les cartes */
-    border-radius: 10px;
-  }
+  display: flex;
+  justify-content: space-between; /* Espacement régulier entre les cartes */
+  align-items: stretch; /* Ajuste la hauteur des cartes en fonction du contenu */
+}
 
-  .ligne{
-    color: #C98264;
-    background-color: #C98264;
-  }
+.carte {
+  width: calc(25% - 10px); /* Pour obtenir l'espacement régulier, ajustez la largeur en fonction du nombre de cartes et de l'espacement souhaité */
+  margin-right: 50px; /* Espacement entre les cartes */
+  margin-left: 50px;
+  background-color: #FFF;/* Autres styles pour les cartes */
+  border-radius: 10px;
+}
 
-  .titre8{
-    color: black;
-    font-family: Helvetica Neue LT Std;
-    font-size: 96px;
-    font-weight: 700px;
-  }
+.ligne{
+  color: #C98264;
+  background-color: #C98264;
+}
 
-  /* Ajoutez cette classe pour styliser les étoiles dans le div "noter" */
+.titre8{
+  color: black;
+  font-family: Helvetica Neue LT Std;
+  font-size: 96px;
+  font-weight: 700px;
+}
+
+/* Ajoutez cette classe pour styliser les étoiles dans le div "noter" */
 .etoiles-noter {
-    font-size: 32px; /* Ajustez la taille des étoiles selon vos préférences */
-    color: gold;
-  }
+  font-size: 32px; /* Ajustez la taille des étoiles selon vos préférences */
+  color: gold;
+}
 
-  svg.svg-inline--fa.fa-star{
-    font-size: 24px;
-  }
+svg.svg-inline--fa.fa-star{
+  font-size: 24px;
+}
 
 .footer{
-  margin-top: -100px;
+margin-top: -100px;
 }

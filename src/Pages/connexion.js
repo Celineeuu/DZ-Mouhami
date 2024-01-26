@@ -25,7 +25,7 @@ const Connexion = () => {
         e.preventDefault();
         try {
            console.log(formData)
-           const response = await fetch("", { //ici on doit mettre l'url du back
+           const response = await fetch("http://127.0.0.1:8000/auth/signup/", { //ici on doit mettre l'url du back
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -61,10 +61,11 @@ const Connexion = () => {
           <p className="text1">Vous n'avez pas de compte?<a className="lienInsc" href="./Inscription">S'inscrire</a></p>
           </div>
           <div className="formRow">
-            <p className="text2">Vous n'etes pas avocat? <a className="lienInsc">Se connecter avec Google<img src={logoGoogle} className="logoGoogle"></img></a></p>
+            <p className="text2">Vous n'etes pas avocat? <a className="lienInsc" href="./Connexion">Se connecter avec Google<img src={logoGoogle} className="logoGoogle" alt="aaa"></img></a></p>
           </div>
         </form>
       </div>
+    
     </div>
 
     )
