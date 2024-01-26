@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useParams } from 'react-router-dom';
+
 
 
 
@@ -18,48 +20,90 @@ const ProfilVueUtilisateur= () => {
     console.log("Cliqué sur le premier bouton !");
   };
 
-  const handleCommentSubmit = () => {
-    if (comment.trim() !== "") {
-      const newComment = {
-        contenu: comment,
-      };
 
-      avocatInfo.commentaires = [...avocatInfo.commentaires, newComment];
-      setComment("");
+  // et ça
+  const handleCommentSubmit = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/commentaires/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ contenu: comment, client: connected_id, avocat: avocat_id }),
+      });
+
+      if (response.ok) {
+        console.log('Commentaire soumis avec succès!');
+        // Ajoutez ici le code pour gérer la suite côté frontend si nécessaire
+      } else {
+        console.error('Erreur lors de la soumission du commentaire');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la soumission du commentaire:', error);
     }
   };
 
   const rating = 5;
   
-  const getAvocatInfo = () => {
-    const avocatInfo = {
-      photo: avocat, 
-      rating: 5, 
-      nomComplet: "Stefan A Rubin", 
-      specialite: "La ou les specialites de l'avocat viendront se mettre ici" ,// Remplacez par le texte réel
-      biographie:"la biographie de l'avocat viendra se mettre la",
-      commentaires: [
-        { contenu: "Contenu du premier commentaire", nomPersonne: "Nom de la personne 1" },
-        { contenu: "Contenu du deuxième commentaire", nomPersonne: "Nom de la personne 2" },
-        { contenu: "Contenu du troisième commentaire", nomPersonne: "Nom de la personne 3" },
-      ],
-      latitude: 48.8583701,
-      longitude: 2.2944813, 
-    };
+  const [avocatInfo, setAvocatInfo] = useState({
+    photo: avocat,
+    rating: 5,
+    nomComplet: "Stefan A Rubin",
+    specialite: "La ou les specialites de l'avocat viendront se mettre ici",
+    biographie: "la biographie de l'avocat viendra se mettre la",
+    commentaires: [
+      { contenu: "Contenu du premier commentaire", nomPersonne: "Nom de la personne 1" },
+      { contenu: "Contenu du deuxième commentaire", nomPersonne: "Nom de la personne 2" },
+      { contenu: "Contenu du troisième commentaire", nomPersonne: "Nom de la personne 3" },
+    ],
+    /*latitude: 48.8583701,
+    longitude: 2.2944813, */
+  });
+  const [commentaires, setCommentaires] = useState([
+    { contenu: "Contenu du premier commentaire", nomPersonne: "Nom de la personne 1" },
+      { contenu: "Contenu du deuxième commentaire", nomPersonne: "Nom de la personne 2" },
+      { contenu: "Contenu du troisième commentaire", nomPersonne: "Nom de la personne 3" }
+  ])
+
   
-    return avocatInfo;
+  const { connected_id, avocat_id } = useParams();
+
+  useEffect(() => {
+ fetchAvocatInfos();
+  }, [avocatInfo]);
+
+  const fetchAvocatInfos = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/afficher_avocat/${avocat_id}`);
+      const responseData = await response.json();
+      console.log("ici c'est infos avocat ", responseData)
+        setAvocatInfo(responseData);
+    } catch (error) {
+      console.error("Erreur lors du fetch des avocats: ", error);
+    }
   };
-  
-  // Utilisez la fonction pour obtenir les informations de l'avocat
-  const avocatInfo = getAvocatInfo();
-  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude
+
+  useEffect(() => {
+    fetchAvocatComments();
+  },[commentaires])
+
+  const fetchAvocatComments = async () => {
+    try {
+      const commentairesResponse = await fetch(`http://127.0.0.1:8000/comment_avocat/${avocat_id}/`);
+      const commentairesData = await commentairesResponse.json();
+      console.log("ici c'est comments ", commentairesData)
+      setCommentaires(commentairesData);
+    } catch (error) {
+      console.error("Erreur lors du fetch des avocats: ", error);
+    }
+  };
+  /*avocatInfo.latitude = 48.8583701; // Replace with actual latitude
+avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/
   // Accéder aux propriétés de l'objet avocatInfo pour obtenir les informations individuelles
-  const photoAvocat = avocatInfo.photo;
   const ratingAvocat = avocatInfo.rating;
-  const nomCompletAvocat = avocatInfo.nomComplet;
+  const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
   const specialiteAvocat = avocatInfo.specialite;
-  const bioAvocat=avocatInfo.biographie;
+  const bioAvocat=avocatInfo.bio;
   
 
   
@@ -68,7 +112,7 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
-        i <= ratingAvocat ? (
+        i <= avocatInfo.evaluation ? (
           <FontAwesomeIcon
             key={i}
             icon={faStar}
@@ -88,24 +132,38 @@ const handleStarClick = (stars) => {
   setSelectedStars(stars);
 };
 
-const handleRatingSubmit = () => {
-  // Mettez à jour la moyenne des notes et le nombre total de notes
-  const newTotalRatings = totalRatings + 1;
-  const newAverageRating =
-    (averageRating * totalRatings + selectedStars) / newTotalRatings;
+// linker ça
 
-  setTotalRatings(newTotalRatings);
-  setAverageRating(newAverageRating);
-};
+
+
+const handleRatingSubmit = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/noter/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ note: selectedStars, idclient: connected_id, idavocat: avocat_id }),
+      });
+
+      if (response.ok) {
+        console.log(response);
+      } else {
+        console.error('Erreur lors de la soumission de la note');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la soumission de la note:', error);
+    }
+  }
 
 
     return(
     <div className="profilVueAvocatDiv">
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="avocatInfoDiv">
-    <span className="photoAvocat"><img src={avocatInfo.photo} alt="avocat"/></span>
+    <span className="photoAvocat"><img src={`http://127.0.0.1:8000/${avocatInfo.photo}`} alt="avocat"/></span>
     <br/>
-          <div className="ratingAvocat">{generateStars()}({averageRating.toFixed(1)})</div>
+          <div className="ratingAvocat">{generateStars()}  {avocatInfo.evaluation}</div>
          <div className="topInfo">
           <span className="nomCompletAvocat"><b>{nomCompletAvocat}</b></span>
           <br/>
@@ -130,7 +188,7 @@ const handleRatingSubmit = () => {
 
     
 <div className="centeredDiv" style={{ display: "flex", flexDirection: "column" }}>
-  <div className="titre0">Localisation</div>
+  {/*<div className="titre0">Localisation</div>
   <div>
   <MapContainer  center={[avocatInfo.latitude, avocatInfo.longitude]} zoom={10} style={{ height: "30px" }}>
       <TileLayer
@@ -144,7 +202,7 @@ const handleRatingSubmit = () => {
       </Marker>
     </MapContainer>
     </div>
-
+    */}
 </div>
 
    
@@ -152,13 +210,17 @@ const handleRatingSubmit = () => {
 <div className="avisAvocatDiv">
   <div className="titre7">Avis sur nous</div>
   <div className="cartesContainer">
-    {avocatInfo.commentaires.map((commentaire, index) => (
-      <div key={index} className="carte">
-        <p className="contenuCommentaire">{commentaire.contenu}</p>
-        <hr />
-        <div className="nomCommentaire">{commentaire.nomPersonne}</div>
-      </div>
-    ))}
+  {commentaires && commentaires.length > 0 ? (
+  commentaires.map((commentaire, index) => (
+    <div key={index} className="carte">
+      <p className="contenuCommentaire">{commentaire.contenu}</p>
+      {/*<hr />
+      <div className="nomCommentaire">{commentaire.nomPersonne}</div>*/}
+    </div>
+  ))
+) : (
+  <div>Aucun commentaire disponible.</div>
+)} 
   </div>
         <div className="noterEtCommenter">
         <div className="noter">

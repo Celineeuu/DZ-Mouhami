@@ -25,6 +25,7 @@ function App() {
         {/* Routage */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/:connected_id/" element={<LandingPage />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/recherche" element={<RechercheAvocat />} />
           <Route path="/:connected_id/recherche" element={<RechercheAvocat />} />

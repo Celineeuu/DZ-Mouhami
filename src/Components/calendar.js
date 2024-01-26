@@ -24,9 +24,9 @@ const Calendar = () => {
     useEffect(() => {
         const fetchTaches = async () => {
             try {
-                const response = await fetch(`/link/${connected_id}`); // ajouter l'url du back
+                const response = await fetch(`http://127.0.0.1:8000/detailrdv/${connected_id}`); // ajouter l'url du back
                 const data = await response.json();
-                setTaches(data.taches); // je dois demander à lilia de nomer la liste des taches taches 
+                setTaches(data.response); // je dois demander à lilia de nomer la liste des taches taches 
             } catch (error) {
                 console.error("Erreur lors du fetch des taches: ", error);
             }

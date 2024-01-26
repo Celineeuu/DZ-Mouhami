@@ -2,7 +2,7 @@ body{
   background-image: url("../Assets/background.png");
   background-size: cover;
 }
-.signUpDiv {
+.signInDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,4 +143,10 @@ font-size: 20px;
 color:black;
 margin-right: 210px;
 margin-bottom: -10px;
+}
+
+.signInDiv b {
+  font-family: Hedvig Letters Sans;
+font-size: 20px;
+color:#C98264;
 }

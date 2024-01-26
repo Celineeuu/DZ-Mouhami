@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "./connexion.css"
 import logoGoogle from "../Assets/logoGoogle.svg"
+import Home from "../Pages/Home/index"
+import { useNavigate } from 'react-router-dom';
+
 
 const Connexion = () => {
     //preparer la data du form pour l'envoyer au back
@@ -10,7 +13,8 @@ const Connexion = () => {
         password: '',
       });
 
-    
+      const navigate = useNavigate();
+
       // pour changer constament l'etat des variables du formulaires
       const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +29,7 @@ const Connexion = () => {
         e.preventDefault();
         try {
            console.log(formData)
-           const response = await fetch("http://127.0.0.1:8000/auth/signup/", { //ici on doit mettre l'url du back
+           const response = await fetch("http://127.0.0.1:8000/api/login/", { 
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -33,6 +37,12 @@ const Connexion = () => {
             body: JSON.stringify(formData),
           });
           const data = await response.json();
+
+          if (response.ok) {
+            navigate(`/${data.avocat_id}`);
+          } else {
+            console.error('Échec de l\'authentification');
+          }
           console.log("Réponse du back: ", data);
         } catch (error) {
           console.error("Erreur lors du fetch: ", error);
@@ -40,7 +50,7 @@ const Connexion = () => {
       }
 
     return(
-    <div className="signUpDiv">
+    <div className="signInDiv">
       <div className="boxDiv">
         <h1 className="title">Connexion</h1>
         <form className="form" type= 'POST' encType="multipart/form-data" onSubmit={handleFormSubmit}>
@@ -60,8 +70,8 @@ const Connexion = () => {
           </button>
           <p className="text1">Vous n'avez pas de compte?<a className="lienInsc" href="./Inscription">S'inscrire</a></p>
           </div>
-          <div className="formRow">
-            <p className="text2">Vous n'etes pas avocat? <a className="lienInsc" href="./Connexion">Se connecter avec Google<img src={logoGoogle} className="logoGoogle" alt="aaa"></img></a></p>
+          <div className="formRow10">
+            <p className="text2"><b className="avocatText">Vous n'etes pas avocat?</b><Home /></p>
           </div>
         </form>
       </div>

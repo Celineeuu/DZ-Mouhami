@@ -13,12 +13,12 @@ const PrendreRendezVous = () => {
     const [formData, setFormData] = useState({
         nom: "",
         prenom: "",
-        numtel: "",
+        email: "",
         sujet: "",
-        idUser: connected_id,
-        idAvocat: avocat_id
+        user: connected_id,
+        avocat: avocat_id
     })
-    const [busyTimes, setBusyTimes] = useState(["12:30", "11:30"])
+    /*const [busyTimes, setBusyTimes] = useState(["12:30", "11:30"])
 
     useEffect(() => {
         const fetchBusyTimes = async () => {
@@ -31,7 +31,7 @@ const PrendreRendezVous = () => {
           }
         };
         fetchBusyTimes();
-      }, []);
+      }, []);*/
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -45,14 +45,14 @@ const PrendreRendezVous = () => {
         const day = date.getDay()
         return day !== 5 && day !== 6
     }
-
+/*
     const excludeTimes = () => {
         const busyTimesAsDates = busyTimes.map((busyTime) =>
           moment(busyTime, "HH:mm").toDate()
         );
         return busyTimesAsDates;
       };
-    
+    */
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -69,11 +69,11 @@ const PrendreRendezVous = () => {
             console.log(formDataToSend.get("prenom"))
             console.log(formDataToSend.get("email"))
             console.log(formDataToSend.get("sujet"))
-            console.log(formDataToSend.get("idUser"))
-            console.log(formDataToSend.get("idAvocat"))
-            const response = await fetch("", { // ajouter l'url du back
+            console.log(formDataToSend.get("user"))
+            console.log(formDataToSend.get("avocat"))
+            const response = await fetch("http://127.0.0.1:8000/rdvcreate/", { // ajouter l'url du back
                 method: 'POST',
-                body: formData,
+                body: formDataToSend,
             });
             const data = await response.json();
             console.log("Réponse du back: ", data);
@@ -99,8 +99,8 @@ const PrendreRendezVous = () => {
                     </div>
                     <div className="formRow">
                         <div className="item">
-                            <label className="labels" for = "telephone">Numéro de telephone *</label>
-                            <input onChange={handleInputChange} pattern="\d{10}" className="input" id="telephone" name="telephone" placeholder="Numéro de telephone" required></input>
+                        <label className="labels" for = "email">Email *</label>
+                <input onChange={handleInputChange} className="input" id="email" name="email" placeholder="Email" type="email" required></input>
                         </div>
                         <div className="item">
                             <label className="labels" for = "adresse">Sujet *</label>
@@ -114,7 +114,6 @@ const PrendreRendezVous = () => {
                                 required
                                 selected={date}
                                 onChange={(date) => setDate(date)}
-                                filterDate={filterDays}
                                 dateFormat="MM/dd/yyyy"
                                 minDate={moment().add(1, 'days').toDate()}
                             />
@@ -132,7 +131,7 @@ const PrendreRendezVous = () => {
                                 dateFormat="HH: mm"
                                 minTime={moment().hours(8).minutes(0).toDate()}
                                 maxTime={moment().hours(16).minutes(0).toDate()}
-                                excludeTimes={excludeTimes()}
+                                
                             />
                         </div>
                     </div>
