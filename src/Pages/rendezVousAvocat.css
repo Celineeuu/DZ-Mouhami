@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8vw;   
+    gap: 8vw; 
+    margin-bottom: 20%;  
 }
 
 .content {

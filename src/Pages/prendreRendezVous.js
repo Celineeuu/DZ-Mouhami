@@ -9,13 +9,16 @@ import { useParams } from 'react-router-dom';
 const PrendreRendezVous = () => {
     const [date, setDate] = useState(null)
     const [time, setTime] = useState(null)
+    const [errorMessage, setErrorMessage] = useState("");
+    const [showError, setShowError] = useState(false);
+
     const { connected_id, avocat_id } = useParams();
     const [formData, setFormData] = useState({
         nom: "",
         prenom: "",
-        email: "",
+        telephone: "",
         sujet: "",
-        user: connected_id,
+        client: connected_id,
         avocat: avocat_id
     })
     /*const [busyTimes, setBusyTimes] = useState(["12:30", "11:30"])
@@ -61,22 +64,35 @@ const PrendreRendezVous = () => {
             for (const key in formData) {
                 formDataToSend.append(key, formData[key]);
             }
-            formDataToSend.append("date", date.toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }))
-            formDataToSend.append("time", time.toLocaleString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
-            console.log(formDataToSend.get("date"))
-            console.log(formDataToSend.get("time"))
+            const formattedDate = moment(date).format('YYYY-MM-DD');
+            const formattedTime = moment(time).format('HH:mm');
+
+            formDataToSend.append("jour", formattedDate)
+            formDataToSend.append("heure", formattedTime)
+            console.log("c'est le type : ", typeof(formattedTime))
+            console.log(formDataToSend.get("jour"))
+            console.log(formDataToSend.get("heure"))
             console.log(formDataToSend.get("nom"))
             console.log(formDataToSend.get("prenom"))
-            console.log(formDataToSend.get("email"))
+            console.log(formDataToSend.get("telephone"))
             console.log(formDataToSend.get("sujet"))
-            console.log(formDataToSend.get("user"))
+            console.log(formDataToSend.get("client"))
             console.log(formDataToSend.get("avocat"))
             const response = await fetch("http://127.0.0.1:8000/rdvcreate/", { // ajouter l'url du back
                 method: 'POST',
                 body: formDataToSend,
             });
-            const data = await response.json();
-            console.log("Réponse du back: ", data);
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Réponse du back: ", data);
+                setErrorMessage("");
+                setShowError(false);
+            } else if (response.status === 400) {
+                const data = await response.json();
+                console.log("Réponse d'erreur du back: ", data);
+                setErrorMessage(data.message);
+                setShowError(true);
+            }
         } catch (error) {
             console.error("Erreur lors du fetch du submit du form de prendre rendez vous: ", error);
         }
@@ -84,6 +100,13 @@ const PrendreRendezVous = () => {
 
     return(
         <div className="rendezVous">
+            <div>
+        {showError && (
+            <div style={{ backgroundColor: "lightcoral", padding: "10px", color: "white", textAlign: "center" }}>
+                {errorMessage}
+            </div>
+        )}
+    </div>
             <div className="container">
                 <h1 className="title">Prendre un rendez vous</h1>
                 <form className="form" type="POST" onSubmit={handleFormSubmit}>
@@ -99,8 +122,8 @@ const PrendreRendezVous = () => {
                     </div>
                     <div className="formRow">
                         <div className="item">
-                        <label className="labels" for = "email">Email *</label>
-                <input onChange={handleInputChange} className="input" id="email" name="email" placeholder="Email" type="email" required></input>
+                        <label className="labels" for = "telephone">Numéro de telephone *</label>
+                <input onChange={handleInputChange} pattern="\d{10}" className="input" id="telephone" name="telephone" placeholder="Numéro de telephone" required></input>
                         </div>
                         <div className="item">
                             <label className="labels" for = "adresse">Sujet *</label>

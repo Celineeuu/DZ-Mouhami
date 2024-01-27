@@ -12,6 +12,9 @@ const Connexion = () => {
         email: '',
         password: '',
       });
+    
+      const [errorMessage, setErrorMessage] = useState("");
+      const [showError, setShowError] = useState(false);
 
       const navigate = useNavigate();
 
@@ -40,17 +43,28 @@ const Connexion = () => {
 
           if (response.ok) {
             navigate(`/${data.avocat_id}`);
-          } else {
-            console.error('Échec de l\'authentification');
-          }
+            setErrorMessage("");
+            setShowError(false);
+          } else if (response.status === 401) {
+            setErrorMessage("Mot de passe ou email incorrect");
+            setShowError(true);
+        }
           console.log("Réponse du back: ", data);
         } catch (error) {
           console.error("Erreur lors du fetch: ", error);
         }
       }
 
+
     return(
     <div className="signInDiv">
+      <div>
+        {showError && (
+            <div style={{ backgroundColor: "lightcoral", padding: "10px", color: "white", textAlign: "center" }}>
+                {errorMessage}
+            </div>
+        )}
+      </div>
       <div className="boxDiv">
         <h1 className="title">Connexion</h1>
         <form className="form" type= 'POST' encType="multipart/form-data" onSubmit={handleFormSubmit}>

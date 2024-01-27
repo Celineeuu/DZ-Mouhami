@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import AvocatCard from '../Components/AvocatCard';
 import './RechercheAvocat.css';
 import image from '../Assets/photo_avocat.png'
+import { useParams } from 'react-router-dom';
+
+
 
 
 function RechercheAvocat() {
@@ -50,39 +53,37 @@ function RechercheAvocat() {
     {adresse: 'Saida'},
     
   ])
-
+  
+const {connected_id} = useParams()
 
 
   /*----je dois récupérer les données des avocats ici (J'ai initialisé pour tester)----*/
   //on doit fetch
  const [avocatData, setAvocatData] = useState([]);
+ const [filteredAvocats, setFilteredAvocats] = useState([]);
 
  useEffect(() => {
-  const fetchAvocats = async () => {
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/liste_avocats/");
-      const responseData = await response.json();
-      if (typeof responseData === 'object' && responseData !== null) {
-        setAvocatData(responseData);
-        console.log(avocatData)
-      } else {
-        console.error("La réponse du serveur ne contient pas les données attendues.");
-      }
-    } catch (error) {
-      console.error("Erreur lors du fetch des avocats: ", error);
-    }
-  };
-
   fetchAvocats();
-}, [avocatData]);
+}, []);
+
+const fetchAvocats = async () => {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/api/liste_avocats/`);
+    const responseData = await response.json();
+    console.log("ici c'est les avocats ", responseData)
+    setAvocatData(responseData);
+    setFilteredAvocats(responseData)
+  } catch (error) {
+    console.error("Erreur lors du fetch des avocats: ", error);
+  }
+};
  
 
 
  /*-----Traitement-------*/
 
   //je récupère les avocats filtrés en fonction des critères de spécialité et d'adresse et j'initialisé aux données de base
-  const [filteredAvocats, setFilteredAvocats] = useState(avocatData);
-
+  console.log("premier useState ", filteredAvocats)
 
  /*-----ici c'est pour récupérer là ou le user clique-----*/
  const [specialité, setSpecialite] = useState('');
@@ -161,6 +162,8 @@ const handleKeyPress = (e) => {
  const indexOfLastItem = currentPage * itemsPerPage;
  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
  const currentAvocats = filteredAvocats.slice(indexOfFirstItem, indexOfLastItem);
+ console.log("c'est currentAvocats : ", currentAvocats)
+ console.log("ici c'est filterd ", filteredAvocats)
  const npage = Math.ceil(filteredAvocats.length/itemsPerPage)
  
 
@@ -262,7 +265,6 @@ function nextPageGroup() {
 
 
 
-
 {/*ici je commence à maper mes avocats dans des cards en leur entrants les données récupérées en haut dans avocatData */}
     
 
@@ -271,6 +273,8 @@ function nextPageGroup() {
     currentAvocats.map((avocat) => (
       <AvocatCard
         key={avocat.id}
+        connected_id={connected_id}
+        avocat_id={avocat.id}
         image={avocat.image}
         specialité={avocat.specialite}
         nom={avocat.nom}
@@ -278,6 +282,7 @@ function nextPageGroup() {
         adresse={avocat.adresse}
         note={avocat.evaluation}
         sumnote={avocat.nbrvotes}
+        photo={avocat.photo}
       />
     ))
   ) : (

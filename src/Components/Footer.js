@@ -7,12 +7,29 @@ import twitter from "../Assets/twitter.png"
 import linkedin from "../Assets/linkedin.png"
 import "./footer.css"
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Footer = () => {
-    const {connected_id, avocat_id} = useParams()
-    const btn = connected_id || avocat_id
+
+const Footer = ({ connected_id, avocat_id }) => {
+    const navigate = useNavigate();
+    const btn = connected_id && connected_id != "Connexion" && connected_id != "Inscription" && connected_id != "Recherche"
     ? "Se déconnecter" 
     : "Se connecter"
+
+    const redbtn = () => {
+        if(btn == "Se connecter"){
+            navigate(`/Connexion`)
+        }else {
+            navigate("/")
+        }
+    }
+    const avbtn = () => {
+        if(connected_id){
+            navigate(`/${connected_id}/Recherche`)
+        }else {
+            navigate("/Recherche")
+        }
+    }
     return(
         <div className="footer">
           <div className="element1">
@@ -30,8 +47,8 @@ const Footer = () => {
                 </div>
             </div>
             <div className="rightSide">
-                <button className="bouton2">Chercher un avocat</button>
-                <button className="buton">{btn}</button>
+                <button className="bouton2" onClick={avbtn}>Chercher un avocat</button>
+                <button className="buton" onClick={redbtn}>{btn}</button>
             </div>
           </div>
           <p className="copyright">Copyright © 2023 DZ MOUHAMI . All rights Reserved</p>

@@ -8,6 +8,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,9 +16,13 @@ import { useParams } from 'react-router-dom';
 const ProfilVueUtilisateur= () => {
    
   const [comment, setComment] = useState("");
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
+  const { connected_id, avocat_id } = useParams();
 
   const handleClickPremier = () => {
-    console.log("Cliqué sur le premier bouton !");
+    navigate(`/${connected_id}/PrendreRendezVous/${avocat_id}`)
   };
 
 
@@ -34,7 +39,10 @@ const ProfilVueUtilisateur= () => {
 
       if (response.ok) {
         console.log('Commentaire soumis avec succès!');
-        // Ajoutez ici le code pour gérer la suite côté frontend si nécessaire
+        setMessage('Commentaire soumis avec succès!');
+        setTimeout(() => {
+          setMessage('');
+        }, 1000);
       } else {
         console.error('Erreur lors de la soumission du commentaire');
       }
@@ -66,8 +74,6 @@ const ProfilVueUtilisateur= () => {
   ])
 
   
-  const { connected_id, avocat_id } = useParams();
-
   useEffect(() => {
  fetchAvocatInfos();
   }, [avocatInfo]);
@@ -97,8 +103,8 @@ const ProfilVueUtilisateur= () => {
       console.error("Erreur lors du fetch des avocats: ", error);
     }
   };
-  /*avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/
+  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
+avocatInfo.longitude = 2.2944813; // Replace with actual longitude
   // Accéder aux propriétés de l'objet avocatInfo pour obtenir les informations individuelles
   const ratingAvocat = avocatInfo.rating;
   const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
@@ -148,6 +154,10 @@ const handleRatingSubmit = async () => {
 
       if (response.ok) {
         console.log(response);
+        setMessage('Note soumise avec succès!');
+        setTimeout(() => {
+          setMessage('');
+        }, 1000);
       } else {
         console.error('Erreur lors de la soumission de la note');
       }
@@ -188,7 +198,7 @@ const handleRatingSubmit = async () => {
 
     
 <div className="centeredDiv" style={{ display: "flex", flexDirection: "column" }}>
-  {/*<div className="titre0">Localisation</div>
+  <div className="titre0">Localisation</div>
   <div>
   <MapContainer  center={[avocatInfo.latitude, avocatInfo.longitude]} zoom={10} style={{ height: "30px" }}>
       <TileLayer
@@ -202,7 +212,7 @@ const handleRatingSubmit = async () => {
       </Marker>
     </MapContainer>
     </div>
-    */}
+    
 </div>
 
    
@@ -239,6 +249,8 @@ const handleRatingSubmit = async () => {
   ))}
    <button onClick={handleRatingSubmit} className="boutonNote">Soumettre</button>
   <div className="moyenneNotes">(Moyenne des notes: {averageRating.toFixed(1)})</div>
+  {message && <div className="message">{message}</div>}
+
 </div>
 <div className="commenter"  style={{ display: 'inline-block' }}>
           <div className="titre8">Commenter</div>
@@ -248,6 +260,7 @@ const handleRatingSubmit = async () => {
             onChange={(e) => setComment(e.target.value)}
             placeholder="Votre commentaire..."/>
             <button onClick={handleCommentSubmit}><img src={avion} alt="aaa" /></button>
+            {message && <div className="message">{message}</div>}
           </div>
         </div>
         </div>

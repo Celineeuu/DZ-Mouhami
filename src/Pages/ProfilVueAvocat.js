@@ -9,16 +9,21 @@ import "slick-carousel/slick/slick-theme.css";
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from 'react-router-dom';
+import RendezVousAvocats from "./rendezVousAvocat"
 
 const ProfilVueAvocat = () => {
   const [visibleCommentaires, setVisibleCommentaires] = useState([]);
 
+  const [selectedSection, setSelectedSection] = useState('informations'); // 'informations' ou 'rendez-vous'
+
+
   const handleClickPremier = () => {
-    console.log("Cliqué sur le premier bouton !");
+    setSelectedSection('informations')
   };
 
   const handleClickDeuxieme = () => {
-    console.log("Cliqué sur le deuxième bouton !");
+        setSelectedSection('rendez-vous');
+
   };
 
   const rating = 5;
@@ -82,8 +87,8 @@ const ProfilVueAvocat = () => {
   const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
   const specialiteAvocat = avocatInfo.specialite;
   const bioAvocat = avocatInfo.bio;
-  {/*avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
+  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
+avocatInfo.longitude = 2.2944813; // Replace with actual longitude
 
 
   const generateStars = () => {
@@ -128,6 +133,8 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
         </button>
       </div>
     </div>
+    {selectedSection === 'informations' && (
+    <div>
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="avocatInfoDiv">
     <span className="photoAvocat"><img src={`http://127.0.0.1:8000/${avocatInfo.photo}`} alt="avocat"/></span>
@@ -153,7 +160,7 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
     </div>
 
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
-    {/*<div className="titre0">Localisation</div>
+    <div className="titre0">Localisation</div>
     <div>
     <MapContainer  center={[avocatInfo.latitude, avocatInfo.longitude]} zoom={10} style={{ height: "30px" }}>
       <TileLayer
@@ -166,7 +173,7 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
         </Popup>
       </Marker>
     </MapContainer>
-    </div>*/}
+    </div>
     </div>
    
     <div className="centeredDiv" >
@@ -190,6 +197,13 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude*/}
     <div className="footer" >
       
       </div>
+      </div>
+      )}
+
+{selectedSection === 'rendez-vous' && (
+        <RendezVousAvocats />
+      )}
+
     </div>
     
     )
