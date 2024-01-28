@@ -11,4 +11,8 @@
  le Framework React pour le développemnet du frontend. +  Django Rest-Framework pour le développement du backend.
 
  Ce projet inclut également : le script du web Scrapping , un code généré pour un test Fonctionnel automatisé avec Sélénium , la documentation générée du code backend ,ainsi qu'une partie du deploiment avec Docker.(au niveau des branches)
+
+
+ ![logo](https://github.com/Celineeuu/DZ-Mouhami/assets/153237742/34dd90b0-7a62-4035-954e-a362a1ef3b96)
+
  
