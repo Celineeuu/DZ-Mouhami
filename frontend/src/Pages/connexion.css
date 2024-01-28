@@ -1,0 +1,152 @@
+.signInDiv body{
+  background-image: url("../Assets/background.png");
+  background-size: cover;
+}
+.signInDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8vw;
+}
+.signInDiv .boxDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  background-color: white;
+  border-radius: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+  padding-bottom: 7%;
+  margin-bottom: 7%;
+  box-shadow: 4px 4px 4px 0px #C98264;
+  width: 750px;
+}
+
+.signInDiv .title {
+color: #C98264; 
+font-family: Helvetica Neue LT Std;
+font-size: 50px;
+margin-top: -10px;
+}
+
+.signInDiv .form {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 3vw;
+
+}
+
+.signInDiv .formRow {
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 12vw; 
+}
+
+.signInDiv .item {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.6vw;
+}
+
+.signInDiv .labels {
+color: #C98264; 
+font-family: Hedvig Letters Sans;
+font-size: 20px;
+font-weight: 400;
+}
+
+.signInDiv .input {
+outline-color: #C98264;
+border: 1px solid #161F2B;
+padding: 1em;
+border-radius: 7px;
+width: 19vw;
+height: 4vh;
+font-size: 16px;
+font-family: Hedvig Letters Sans;
+color: #161F2B;
+}
+
+.signInDiv .checkLabel {
+color: #161F2B; 
+font-family: Hedvig Letters Sans;
+font-size: 20px;
+align-self: flex-start;
+}
+.signInDiv .checkLink {
+color: #C98264; 
+font-family: Hedvig Letters Sans;
+font-size: 20px;
+}
+
+.signInDiv .checkbox {
+border-radius: 2px;
+border: 1px solid #161F2B;
+color: #C98264;
+width: 18px;
+height: 18px;
+cursor: pointer;
+accent-color: #C98264;
+margin-right: 0.5vw;
+}
+
+.signInDiv .button {
+color: #C98264;
+background-color: white;
+font-family: Hedvig Letters Sans;
+font-size: 17px;
+border: 1px solid #C98264;
+width: 13vw;
+height: 4vw;
+border-radius: 8px;
+margin-left: -40px;
+&:hover{
+  background-color: #C98264;
+    border: #C98264;
+    color: white;
+}
+}
+
+.signInDiv .text1{
+  font-family: Hedvig Letters Sans;
+font-size: 20px;
+color:black;
+align-items:flex-start;
+
+}
+
+.signInDiv .lienInsc{
+  color: #C98264;
+  text-decoration: underline;
+  margin: 5px;
+}
+
+.signInDiv .logoGoogle
+{
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  margin-bottom: -5px;
+}
+
+.signInDiv .text2{
+   font-family: Hedvig Letters Sans;
+font-size: 20px;
+color:black;
+margin-right: 210px;
+margin-bottom: -10px;
+}
+
+.signInDiv b {
+  font-family: Hedvig Letters Sans;
+font-size: 20px;
+color:#C98264;
+}

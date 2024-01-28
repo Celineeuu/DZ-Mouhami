@@ -1,0 +1,31 @@
+#Inscription:   http://127.0.0.1:8000/api/signup/
+
+#authentification:   http://127.0.0.1:8000/api/login/
+
+#auth google:   http://127.0.0.1:8000/api/auth/google/
+
+#Information avocats (Admin):    http://127.0.0.1:8000/api/liste_avocats/
+
+#Suppression d'un avocat:   http://127.0.0.1:8000/api/supprimer_avocat/<int:id>
+
+
+#Affichage d'un avocat:   http://127.0.0.1:8000/api/afficher_avocat/<int:id>
+
+#Prendre rendez vous:   http://127.0.0.1:8000/rdvcreate/
+
+#Afficher les rendez vous d'un avocat :   http://127.0.0.1:8000/detailrdv/<int:id_avocat>/
+
+#Lister les commentaires d'un avocat:  http://127.0.0.1:8000/comment_avocat/<int:id>/
+
+#Afficher tous les commmentaires:   http://127.0.0.1:8000/commentaires/
+
+#Affichage d'un commentaire:   http://127.0.0.1:8000/commentaires/<int:pk>/
+
+#Noter avocat:   http://127.0.0.1:8000/noter/
+
+#Localisation avocat:   http://127.0.0.1:8000/auth/carte/<int:id_avocat>/
+
+
+
+
+

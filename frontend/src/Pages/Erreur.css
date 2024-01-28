@@ -1,0 +1,52 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #161F2B ;
+    animation: fadeIn 1s ease-in-out;
+   }
+   
+   h1.oops {
+    font-size: 6rem;
+    color:#C98264;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    animation: error 1s linear infinite alternate;
+   }
+   
+   h2.err {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color:#C98264;
+   }
+   
+   p.text1{
+    font-size: 1.5rem;
+    margin-left: 150px;
+    margin-bottom: 5px;
+    color:#C98264;
+   }
+
+   p.text2{
+    font-size: 1rem;
+    margin-left: 150px;
+    margin-bottom: 200px;
+    color:white;
+   }
+
+   @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+   
+  @keyframes error {
+    from { transform: translateY(0%); }
+    to { transform: translateY(-10%); }
+   }

@@ -1,0 +1,129 @@
+/* Updated CSS for Admin Component */
+
+  
+.app  .container-admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ .app .table {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 200px;
+    margin-left: 30px;
+  }
+  
+ .app .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+ .app .profil-btn {
+    background-color: #c98264;
+    border: 2px solid #c98264;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+ .app .profil-btn:hover {
+    background-color: #f0bea9;
+    color: #96563a;
+  }
+  
+ .app span {
+    padding: 0px 60px;
+    margin: 0px 5px;
+  }
+  
+ .app input {
+    margin-bottom: 100px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 500px;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    border: 1px solid #131c27;
+    border-radius: 4px;
+    background-color: #131c27;
+    color: #fff;
+  }
+  
+ .app input:hover {
+    border: 0.5px solid #c98264;
+  }
+  
+ .app .data {
+    color: white;
+  }
+  
+ .app .delete-btn {
+    background-color: #161f2b;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: larger;
+  }
+  
+ .app .delete-btn:hover {
+    color: red;
+  }
+  
+  @media screen and (max-width: 800px) {
+ .app   input {
+      margin-bottom: 100px;
+      padding: 10px;
+      padding-left: 10vw;
+      padding-right: 20vw;
+      margin-left: 18vw;
+      margin-right: 25vw;
+      border: 1px solid #131c27;
+      border-radius: 4px;
+      background-color: #131c27;
+      color: #fff;
+    }
+  
+  .app  span {
+      padding: 0px 5vw;
+      margin: 0px 2vw;
+      font-size: 3vw;
+    }
+  
+  .app  .table {
+      padding: 2vw;
+    }
+  }
+  .app .data-id {
+    color: white;
+  }
+  .app .data-nom {
+    color: white;
+  }
+  .app .data-prenom {
+    color: white;
+  }
+  .app .profil-url {
+    color: white;
+  }
+  
