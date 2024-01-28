@@ -8,8 +8,7 @@
 
  Cette application web a été développée en utilisant les technologies :
 
- -le Framwork React pour le développemnet du frontend.
- -Django Rest-Framwork pour le développement du backend.
+ le Framework React pour le développemnet du frontend. +  Django Rest-Framework pour le développement du backend.
 
  Ce projet inclut également : le script du web Scrapping , un code généré pour un test Fonctionnel automatisé avec Sélénium , ainsi qu'une partie du deploiment avec Docker.(au niveau des branches)
  
