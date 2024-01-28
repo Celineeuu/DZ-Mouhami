@@ -16,11 +16,11 @@ const Calendar = () => {
         {id: 5, date: "2024-01-05", heure: "11:00", numtel: "0123456789", nom: "test", prenom: "test", sujet: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"},
         {id: 6, date: "2024-01-05", heure: "14:00", numtel: "0123456789", nom: "test", prenom: "test", sujet: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"}*/
     ]);
-    const [selectedDate, setSelectedDate] = useState(null);
+    const aujourdHui = new Date();
+    const dateAujourdHuiString = aujourdHui.toISOString().split('T')[0]
+    const [selectedDate, setSelectedDate] = useState(dateAujourdHuiString);
     const [selectedDateTasks, setSelectedDateTAsks] = useState([]);
     const { connected_id } = useParams();
-    const aujourdHui = new Date();
-    const dateAujourdHuiString = aujourdHui.toLocaleDateString();
 
     // link des taches de l'avocat
     useEffect(() => {
@@ -44,6 +44,26 @@ const Calendar = () => {
         console.log(arg.dateStr)
         setSelectedDateTAsks(taches.filter(tache => tache.jour === arg.dateStr));
     };
+    useEffect(() => {
+        fetchFirst()
+    }, [connected_id])
+
+    const fetchFirst = async () => {
+        try {
+            console.log("le useEffect march")
+            const response = await fetch(`http://127.0.0.1:8000/detailrdv/${connected_id}/`); // ajouter l'url du back
+            const data = await response.json();
+            console.log("c'est data ", data)
+            setTaches(data);
+            console.log("c'est selectedData", selectedDate)
+            const v = data.filter(dat => dat.jour === selectedDate)
+            console.log(v)
+            setSelectedDateTAsks(data.filter(dat => dat.jour === selectedDate))
+            console.log("c'est selectedDateTasks : ", selectedDateTasks)
+        } catch (error) {
+            console.error("Erreur lors du fetch des taches: ", error);
+        }
+    }
 
     function renderEventContent (eventInfo) {
         console.log("on est dans renderEvenetContent", eventInfo.event.extendedProps)

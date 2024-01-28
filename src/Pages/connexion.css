@@ -1,4 +1,4 @@
-body{
+.signInDiv body{
   background-image: url("../Assets/background.png");
   background-size: cover;
 }
@@ -9,7 +9,7 @@ body{
   align-items: center;
   gap: 8vw;
 }
-.boxDiv {
+.signInDiv .boxDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,14 +26,14 @@ body{
   width: 750px;
 }
 
-.title {
+.signInDiv .title {
 color: #C98264; 
 font-family: Helvetica Neue LT Std;
 font-size: 50px;
 margin-top: -10px;
 }
 
-.form {
+.signInDiv .form {
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -42,28 +42,28 @@ gap: 3vw;
 
 }
 
-.formRow {
+.signInDiv .formRow {
 display: flex;
 flex-direction: row;
 justify-content: center;
 gap: 12vw; 
 }
 
-.item {
+.signInDiv .item {
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 0.6vw;
 }
 
-.labels {
+.signInDiv .labels {
 color: #C98264; 
 font-family: Hedvig Letters Sans;
 font-size: 20px;
 font-weight: 400;
 }
 
-.input {
+.signInDiv .input {
 outline-color: #C98264;
 border: 1px solid #161F2B;
 padding: 1em;
@@ -75,19 +75,19 @@ font-family: Hedvig Letters Sans;
 color: #161F2B;
 }
 
-.checkLabel {
+.signInDiv .checkLabel {
 color: #161F2B; 
 font-family: Hedvig Letters Sans;
 font-size: 20px;
 align-self: flex-start;
 }
-.checkLink {
+.signInDiv .checkLink {
 color: #C98264; 
 font-family: Hedvig Letters Sans;
 font-size: 20px;
 }
 
-.checkbox {
+.signInDiv .checkbox {
 border-radius: 2px;
 border: 1px solid #161F2B;
 color: #C98264;
@@ -98,7 +98,7 @@ accent-color: #C98264;
 margin-right: 0.5vw;
 }
 
-.button {
+.signInDiv .button {
 color: #C98264;
 background-color: white;
 font-family: Hedvig Letters Sans;
@@ -115,7 +115,7 @@ margin-left: -40px;
 }
 }
 
-.text1{
+.signInDiv .text1{
   font-family: Hedvig Letters Sans;
 font-size: 20px;
 color:black;
@@ -123,13 +123,13 @@ align-items:flex-start;
 
 }
 
-.lienInsc{
+.signInDiv .lienInsc{
   color: #C98264;
   text-decoration: underline;
   margin: 5px;
 }
 
-.logoGoogle
+.signInDiv .logoGoogle
 {
   height: 30px;
   width: 30px;
@@ -137,7 +137,7 @@ align-items:flex-start;
   margin-bottom: -5px;
 }
 
-.text2{
+.signInDiv .text2{
    font-family: Hedvig Letters Sans;
 font-size: 20px;
 color:black;

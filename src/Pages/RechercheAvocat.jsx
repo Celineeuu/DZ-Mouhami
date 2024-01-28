@@ -29,6 +29,7 @@ function RechercheAvocat() {
     {specialité : "Droit fiscal et droit douanier"},
     {specialité : "Droit des garanties, des sûretés et des m}esures d’exécution"},
     {specialité : "Droit immobilier"},
+    {specialité : "Droit administratif"},
     {specialité : "Droit international et de l’Union européenne"}
     
     

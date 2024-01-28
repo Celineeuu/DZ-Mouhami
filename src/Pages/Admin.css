@@ -117,4 +117,13 @@
   .app .data-id {
     color: white;
   }
+  .app .data-nom {
+    color: white;
+  }
+  .app .data-prenom {
+    color: white;
+  }
+  .app .profil-url {
+    color: white;
+  }
   

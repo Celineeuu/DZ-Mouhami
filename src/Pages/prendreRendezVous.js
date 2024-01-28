@@ -5,13 +5,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import moment from "moment";
 import "./prendreRendezVous.css"
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const PrendreRendezVous = () => {
     const [date, setDate] = useState(null)
     const [time, setTime] = useState(null)
     const [errorMessage, setErrorMessage] = useState("");
     const [showError, setShowError] = useState(false);
-
+    const navigate = useNavigate()
     const { connected_id, avocat_id } = useParams();
     const [formData, setFormData] = useState({
         nom: "",
@@ -87,6 +89,7 @@ const PrendreRendezVous = () => {
                 console.log("Réponse du back: ", data);
                 setErrorMessage("");
                 setShowError(false);
+                navigate(`/${connected_id}/ProfilVueUtilisateur/${avocat_id}`)
             } else if (response.status === 400) {
                 const data = await response.json();
                 console.log("Réponse d'erreur du back: ", data);
@@ -138,7 +141,7 @@ const PrendreRendezVous = () => {
                                 selected={date}
                                 onChange={(date) => setDate(date)}
                                 dateFormat="MM/dd/yyyy"
-                                minDate={moment().add(1, 'days').toDate()}
+                                minDate={moment().toDate()}
                             />
                         </div>
                         <div className="item">

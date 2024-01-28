@@ -87,8 +87,9 @@ const ProfilVueAvocat = () => {
   const nomCompletAvocat = `${avocatInfo.nom} ${avocatInfo.prenom}`;
   const specialiteAvocat = avocatInfo.specialite;
   const bioAvocat = avocatInfo.bio;
-  avocatInfo.latitude = 48.8583701; // Replace with actual latitude
-avocatInfo.longitude = 2.2944813; // Replace with actual longitude
+  const latitude = 36.7833; // Replace with actual latitude
+  const longitude = 3.167; // Replace with actual longitude
+
 
 
   const generateStars = () => {
@@ -101,8 +102,9 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude
       );
     }
     return stars;
-  };
+  }
 
+  
   const [selectedStars, setSelectedStars] = useState(0);
   const [averageRating, setAverageRating] = useState(ratingAvocat);
   const [totalRatings, setTotalRatings] = useState(0);
@@ -152,24 +154,24 @@ avocatInfo.longitude = 2.2944813; // Replace with actual longitude
     </div>
     
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
-    <div className="titre6">Biographie</div>
+    <div className="titre6">Profil élaboré</div>
       <div className="bioAvocatDiv">
-     
-      <div className="biographie">{bioAvocat}</div>
+      <div className="localisation"><b>Wilaya d'activité : </b>{avocatInfo.adresse}</div>
+      <div className="localisation"><b>Points d'intérêt : </b>{bioAvocat}</div>
       </div>
     </div>
 
     <div className="centeredDiv"  style={{ display: 'flex', flexDirection: 'column' }}>
-    <div className="titre0">Localisation</div>
+    <div className="titre6">Localisation</div>
     <div>
-    <MapContainer  center={[avocatInfo.latitude, avocatInfo.longitude]} zoom={10} style={{ height: "30px" }}>
+    <MapContainer  center={[latitude, longitude]} zoom={10} style={{ height: "30px" }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[avocatInfo.latitude, avocatInfo.longitude]}>
+      <Marker position={[latitude, longitude]}>
         <Popup>
-          <span>{avocatInfo.nomComplet}</span>
+          <span>{avocatInfo.nom} {avocatInfo.prenom}</span>
         </Popup>
       </Marker>
     </MapContainer>

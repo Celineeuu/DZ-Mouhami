@@ -40,17 +40,17 @@ align-items: center;
   background-color: white;
   height: 350px;
   margin-top: -00px;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 .bioAvocatDiv{
       width: 75%;
-      padding: 20px;
+    
       /* Autres styles que vous souhaitez appliquer */
       border-radius: 10px;
       border: 4px solid #C98264;
       background-color: white;
-      height: 400px;
+      height: 100px;
       margin-top: -00px;
       margin-bottom: 00px;
 }
@@ -142,7 +142,7 @@ line-height: normal;
   margin-top: -160px;
   margin-bottom: 20px;
  align-items:start;
-  margin-right: 560px;
+  margin-right: 480px;
 }
 
 

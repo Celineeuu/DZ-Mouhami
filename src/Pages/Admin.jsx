@@ -68,7 +68,7 @@ function Admin() {
               <span className='data-nom'>{item.nom}</span>
               <span className='data-prenom'>{item.prenom}</span>
               <button className='profil-btn'>
-                <a className='profil-url' href={`/url/profil/${item.id}`}>Profil</a>
+                <a className='profil-url' href={`/ProfilVueUtilisateur/${item.id}`}>Profil</a>
               </button>
               <button onClick={() => handleDelete(item.id)} className='delete-btn'><FaTrash /></button>
             </div>

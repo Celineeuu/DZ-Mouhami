@@ -3,7 +3,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 
-const { REACT_APP_GOOGLE_CLIENT_ID, REACT_APP_GOGGLE_REDIRECT_URL_ENDPOINT } =
+const { REACT_APP_GOOGLE_CLIENT_ID, VITE_REACT_APP_GOGGLE_REDIRECT_URL_ENDPOINT } =
   process.env;
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
     const params = new URLSearchParams({
       response_type: "code",
       client_id: REACT_APP_GOOGLE_CLIENT_ID,
-      redirect_uri: `${REACT_APP_GOGGLE_REDIRECT_URL_ENDPOINT}/google`,
+      redirect_uri: `http://localhost:3000/google`,
       prompt: "select_account",
       access_type: "offline",
       scope,
@@ -86,7 +86,7 @@ const Home = () => {
     </button>
         </div>
       ) : (
-        <small className="text-primary-600">Ops not Logged in yet</small>
+        <small className="text-primary-600"></small>
       )}
 
     </div>

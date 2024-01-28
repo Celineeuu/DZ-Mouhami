@@ -110,6 +110,7 @@ const Inscription = () => {
                   <option value="Droit fiscal et droit douanier">Droit fiscal et droit douanier</option>
                   <option value="Droit des garanties, des sûretés et des mesures d’exécution">Droit des garanties, des sûretés et des mesures d’exécution</option>
                   <option value="Droit immobilier">Droit immobilier</option>
+                  <option value="Droit immobilier">Droit administratif</option>
                   <option value="Droit international et de l’Union européenne">Droit international et de l’Union européenne</option>
                 </select>
               </div>

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 //import { Link } from 'react-router-dom';
 import './Hero.css'
 import image from '../Assets/Rectangle 2.svg'
@@ -11,10 +12,15 @@ const Hero = () => {
   const { t } = useTranslation();
   //logique pour le bouton de recherche
   const navigate = useNavigate();
+  const { connected_id } = useParams()
 
   const handleClick = () => {
-    navigate('/Recherche');
-  };
+    if(connected_id){
+        navigate(`/${connected_id}/Recherche`)
+    }else {
+        navigate("/Recherche")
+    }
+}
 
 
 

@@ -40,9 +40,10 @@ const Connexion = () => {
             body: JSON.stringify(formData),
           });
           const data = await response.json();
+          console.log(formData)
 
           if (response.ok) {
-            navigate(`/${data.avocat_id}`);
+            navigate(`/${data.avocat_id}/ProfilVueavocat`);
             setErrorMessage("");
             setShowError(false);
           } else if (response.status === 401) {

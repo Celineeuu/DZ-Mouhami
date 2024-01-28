@@ -21,7 +21,12 @@ i18n
           'Chercher':'البحث',
           'Trouvez rapidement l avocat idéal en utilisant notre barre de recherche . Filtrez par région et spécialité pour des résultats précis.':'ابحثوا بسرعة عن المحامين المثاليين باستخدام شريط البحث لدينا. قوموا بتصفية النتائج حسب المنطقة والتخصص للحصول على نتائج دقيقة.',
           'Contacter':'التواصل',
-          'Comparer':'المقارنة'
+          'Comparer':'المقارنة',
+          "Accueil" : "الرئيسية",
+          "Services" : 'خدمات',
+          "Avocats" : "المحامين",
+          "Contacts" : 'التواصل',
+          "Se connecter" : "تسجيل الدخول"
         },
       },
     },

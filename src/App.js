@@ -25,8 +25,6 @@ function App() {
 
   const connected_id = urlParams[0] || null;
   const avocat_id = urlParams[2] || null;
-  console.log("c'est avocat id ", avocat_id)
-  console.log("c'est connected id ", connected_id)
   return (
     <div className="App">
       <div className='contenu'>
@@ -43,6 +41,7 @@ function App() {
           <Route path="/Inscription" element={<Inscription />}></Route>
           <Route path="/:connected_id/ProfilVueAvocat"element={<ProfilVueAvocat />}></Route>
           <Route path="/:connected_id/ProfilVueUtilisateur/:avocat_id"element={<ProfilVueUtilisateur />}></Route>
+          <Route path="/ProfilVueUtilisateur/:avocat_id"element={<ProfilVueUtilisateur />}></Route>
           <Route path="/:connected_id/PrendreRendezVous/:avocat_id" element={<PrendreRendezVous />}></Route>
           <Route path="/:connected_id/RendezVousAvocat" element={<RendezVousAvocat />}></Route>
 
