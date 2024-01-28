@@ -1,0 +1,46 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 13vw;
+    margin-bottom: 8%;
+    margin-top: 3%;
+}
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    color: white;
+    font-family: Hedvig Letters Sans;
+    font-size: 18px;
+}
+
+.elem {
+    &:hover {
+        color: #C98264;
+        text-decoration: underline;
+    }
+}
+
+.btn {
+    align-self: flex-start;
+    color: #C98264;
+    background-color: #161F2B;
+    font-family: Hedvig Letters Sans;
+    font-size: 18px;
+    border: 1px solid #C98264;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 13vw;
+    height: 4vw;
+    border-radius: 8px;
+    &:hover{
+      background-color: #C98264;
+        border: #C98264;
+        color: white;
+    }
+}

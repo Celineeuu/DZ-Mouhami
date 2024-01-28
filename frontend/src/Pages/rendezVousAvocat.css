@@ -1,0 +1,107 @@
+.rendezVousAvocat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8vw; 
+    margin-bottom: 20%;  
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.demandes {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 3vw;
+    height: 58vh;
+    width: 85vw;
+  }
+
+  .demandes::-webkit-scrollbar {
+    display: none;
+  }
+  .card {
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    flex-grow: 0; /* Prevent cards from growing */
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 40vw;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+  }  
+
+.item {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.bouttton {
+    color: #C98264;
+    background-color: white;
+    font-family: Hedvig Letters Sans;
+    font-size: 15px;
+    border: 1px solid #C98264;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 9vw;
+    height: 3vw;
+    border-radius: 8px;
+    &:hover{
+        background-color: #C98264;
+        border: #C98264;
+        color: white;
+    }
+}
+
+.value {
+    color: #131C27;
+    font-family: Hedvig Letters Sans;
+}
+
+.titre {
+    color: #C98264; 
+    font-family:helvetica neue lt pro;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.partie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}

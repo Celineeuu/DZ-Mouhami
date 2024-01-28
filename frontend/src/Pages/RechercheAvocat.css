@@ -1,0 +1,250 @@
+
+.container-recherche{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    margin-top:10vw ;
+    margin-left: 12vw;
+    margin-right: 10vw;
+    margin-bottom: 5vw;
+
+}
+
+.container-cards .search-err{
+    margin-left: 23vw;
+    color: #C98264;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+
+
+.container-filtre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+   }
+   
+   .select-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+   }
+   
+   label {
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 2px;
+   }
+   
+   select {
+    padding: 10px;
+    font-size: 16px;
+    background-color:  #161F2B;
+    color: white;
+    border-radius: 15px;
+   }
+
+   
+   option{
+    background-color: white;
+    color: #161F2B ;
+   }
+
+   .container-btn{
+    display:flex;
+    flex-direction: row;
+    
+   }
+   .filter-btn , 
+   .reset-btn {
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 5px 15px;
+    font-size: 16px;
+    border:0.5px solid white;
+    border-radius: 17px;
+    cursor: pointer;
+    background-color:#131C27;
+    color: white;
+    box-shadow: none;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    
+   }
+
+   .filter-btn:hover{
+    border:0.5px solid #131C27;
+    background-color: #C98264;
+    color: #131C27;
+   }
+
+   .reset-btn:hover{
+    border:0.5px solid #131C27;
+    background-color: #C98264;
+    color: #131C27;
+   }
+  
+  
+  .pagination {
+   display: flex;
+   padding-left: 0;
+   list-style: none;
+   border-radius: 0.25rem;
+   margin-left:40vw;
+   margin-bottom: 10vw;
+   transition: all 1s ease-in-out;
+  }
+  
+  .page-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-width: 3rem;
+   height: 3rem;
+   line-height: 3rem;
+   /*border: 1px solid #dee2e6;*/
+   text-align: center;
+   cursor: pointer;
+  }
+
+  .page-item button {
+    background-color:  #131C27;
+   color:#C98264;
+   text-decoration: none;
+   border:0.5px solid #C98264;
+   border-radius: 5px;
+   cursor: pointer;
+
+  }
+  
+  .page-item button:hover {
+
+   background-color: #C98264;
+   color: #131C27;
+   transition: all 0.2s ease-in-out;
+  }
+  
+  .page-item.active .page-link{
+   background-color: #C98264;
+   color: #131C27;
+
+  }
+
+  .page-link-pre {
+    padding: 8px;
+  }
+  .page-link-next {
+    padding: 8px;
+  }
+  
+  .avocat-search{
+    margin-bottom: 100px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 500px;
+    margin-left: 25vw ;
+    margin-right: 25vw ;
+    border: 2px solid #17222e;
+    border-radius: 4px;
+    background-color:#131C27;
+    color: #fff;
+
+   }
+
+   input:hover{
+    border: 0.5px solid #C98264;
+   }
+
+   @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+
+   @media (max-width: 1400px) {
+
+    .container-cards {
+        display: flex;
+        flex-wrap: wrap;
+        /*justify-content: space-between;*/
+        margin-top:10vw ;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        margin-bottom: 10vw;
+    
+    
+    }
+
+    .container-cards .search-err{
+        margin-left: 21.5vw;
+    }
+
+    .pagination {
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        border-radius: 0.25rem;
+        margin-left:37.5vw;
+        margin-bottom: 10vw;
+        transition: all 1s ease-in-out;
+       }
+
+       .avocat-search {
+        margin-bottom: 100px;
+        padding: 10px;
+        padding-left: 10px;
+        padding-right: 50px;
+        margin-left: 25vw ;
+        margin-right: 25vw ;
+        border: 1px solid #131C27;
+        border-radius: 4px;
+        background-color:#131C27;
+        color: #fff;
+    
+       }
+
+   }
+
+
+   @media (max-width: 750px) {
+
+    .container-filtre {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
+
+       .pagination {
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        border-radius: 0.25rem;
+        margin-left:28vw;
+        margin-bottom: 10vw;
+        transition: all 1s ease-in-out;
+       }
+
+
+       .container-cards .search-err{
+        margin-top: 2vw;
+        margin-left: 5vw;
+        font-size: 0.9rem;
+        width: auto;
+    }
+
+   }
+
